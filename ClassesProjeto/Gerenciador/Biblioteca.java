@@ -1,4 +1,4 @@
-package ClassesProjeto;
+package ClassesProjeto.Gerenciador;
 
 import java.util.Date;
 import java.util.List;
