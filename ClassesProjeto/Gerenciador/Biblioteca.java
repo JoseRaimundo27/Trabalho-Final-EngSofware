@@ -1,6 +1,6 @@
 package ClassesProjeto.Gerenciador;
 
-import java.util.Date;
+
 import java.util.List;
 
 import ClassesProjeto.Livro.InterfaceLivro;
@@ -10,18 +10,54 @@ public class Biblioteca {
     private List<InterfaceLivro> livros;
     private List<InterfaceUsuario> usuarios; //Principio aberto e fechado -> Será do tipo da interface pai. Usarei obterTipoUsuario() para retornar o tipo de usário em questão, e não usar instanceOFF
 
-     //USAR DATE PARA A DATA DE DEVOLUCAO?:
-     private Date dataDevolucao;
+    
+     private int diasDevolucao;
 
      //MÉTODOS:
+    public InterfaceLivro getLivroByCodigo(double codigoLivro){
+        for(int i=0;i<livros.size();i++){
+            if(livros.get(i).getCodigoLivro() == codigoLivro){
+                return livros.get(i);
+            }
+        }
+        return null;
 
-   public void getUsuarioByCodigoUsuario(double codigoIdentificacao){
-        //vai percorrer lista usuarios e RETORNAR TIPO InterfaceUsuario
     }
+   public InterfaceUsuario getUsuarioByCodigoUsuario(double codigoIdentificacao){
+        for(int i=0;i<usuarios.size();i++){
+            if(usuarios.get(i).getCodigoIdentificacao() == codigoIdentificacao){
+                return usuarios.get(i);
+            }
+        }
+        return null;
+    }
+
+    public String criarReserva(){
+        return "";
+    }
+        
+        
+    public String criarEmprestimo(double codigoUsuario, double codigoLivro){
+        InterfaceUsuario usuario = getUsuarioByCodigoUsuario(codigoUsuario);
+        InterfaceLivro livro = getLivroByCodigo(codigoLivro);
+        if(livro == null){
+            return "Codigo do livro inválido!";
+        }
+        if(usuario == null){
+            return "Código de usuário inválido!";
+        }
+
+        if(livro.isStatusExemplar()){ //verifica se exemplar está disponível
+            usuario.obterTipoEmprestimo().realizarEmprestimo(usuario); // A partir do tipo de emprestimo em questão, eu vou criar o emprestimo, respeitando as regras da criação de empréstimo diferentes entre professores e alunos
+            return "";
+
+        }else{
+            return "Exemplar do livro não está disponível!";
+        }
     
-    public void solicitacaoEmprestimo(InterfaceUsuario usuario){
-        //return usuario.obterTipoUsuario().emprestimo();
-    
+
+
+
     }
     
 }

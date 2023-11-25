@@ -1,5 +1,7 @@
 package ClassesProjeto.Usuarios;
 
+import ClassesProjeto.Gerenciador.InterfaceRealizadorEmprestimo;
+import ClassesProjeto.Gerenciador.realizadorEmprestimoProfessor;
 
 public class Professores implements InterfaceUsuario {
     String nome;
@@ -7,7 +9,8 @@ public class Professores implements InterfaceUsuario {
     //Especificidades:
      int tempoEmprestimo = 7;
      int limiteDeEmprestimos = 0;
-    
+    //para verificar se é devedor ou não:
+    boolean devedor; //True caso seja devedor
     
      //MÉTODOS:
      @Override
@@ -27,10 +30,11 @@ public class Professores implements InterfaceUsuario {
         return "";
      }
 
-     //Para retornar o tipo de usuário (não fazer instanceOFF):
-    public InterfaceUsuario obterTipoUsuario(){
-        return new Professores();
+     //Para retornar o tipo de empréstimo (não fazer instanceOFF):
+    public InterfaceRealizadorEmprestimo obterTipoEmprestimo(){
+        return new realizadorEmprestimoProfessor();
     }
+
 
      //GETTER E SETTERS:
 
@@ -65,4 +69,11 @@ public class Professores implements InterfaceUsuario {
     public void setLimiteDeEmprestimos(int limiteDeEmprestimos) {
         this.limiteDeEmprestimos = limiteDeEmprestimos;
     }
+    public boolean isDevedor() {
+        return devedor;
+    }
+    public void setDevedor(boolean devedor) {
+        this.devedor = devedor;
+    }
+
 }

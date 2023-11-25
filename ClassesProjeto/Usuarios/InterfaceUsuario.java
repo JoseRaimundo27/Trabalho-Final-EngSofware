@@ -1,5 +1,7 @@
 package ClassesProjeto.Usuarios;
 
+import ClassesProjeto.Gerenciador.InterfaceRealizadorEmprestimo;
+
 public interface InterfaceUsuario {
 
     String getNome();
@@ -11,13 +13,16 @@ public interface InterfaceUsuario {
     int getTempoEmprestimo();
     void setTempoEmprestimo(int tempoEmprestimo);
 
+    boolean isDevedor();
+    void setDevedor(boolean devedor);
+
     //Métodos comuns para alunos e professores:
     String devolucaoLivro();
     String reservaLivro();
     String emprestimo();
 
     //Para retornar o tipo de usuário (não fazer instanceOFF):
-    public InterfaceUsuario obterTipoUsuario();
+    public InterfaceRealizadorEmprestimo obterTipoEmprestimo();
 
 
 
