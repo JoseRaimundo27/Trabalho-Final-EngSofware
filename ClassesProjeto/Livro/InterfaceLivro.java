@@ -39,4 +39,10 @@ public interface InterfaceLivro {
 
     boolean isStatusReserva();
     void setStatusReserva(boolean statusReserva);
+    
+    int getQuantidadeDeReservas();
+    void setQuantidadeDeReservas(int quantidadeDeReservas);
+
+    void addReservaLivro();
+    void removeReservaLivro();
 }

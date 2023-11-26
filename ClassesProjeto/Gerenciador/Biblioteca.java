@@ -1,5 +1,5 @@
 package ClassesProjeto.Gerenciador;
-
+//NO FINAL DIMINUIR A CLASSE BIBLIOTECA EM UMA SERIE DE OUTRAS CLASSES - DISTRIBUIR A FUNÇÃO!
 
 import java.util.List;
 
@@ -32,8 +32,22 @@ public class Biblioteca {
         return null;
     }
 
-    public String criarReserva(){
-        return "";
+    public String criarReserva(double codigoUsuario, double codigoLivro){
+        InterfaceUsuario usuario = getUsuarioByCodigoUsuario(codigoUsuario);
+        InterfaceLivro livro = getLivroByCodigo(codigoLivro);
+        if(livro == null){
+            return "Codigo do livro inválido!";
+        }
+        if(usuario == null){
+            return "Código de usuário inválido!";
+        }
+        if(usuario.getLivrosReservados().size() == 3){
+            return "Usuário já reservou 3 livros!";
+        }else{
+            livro.addReservaLivro();
+            usuario.addReserva(livro);
+            return "Sucesso ao reservar" + livro.getNomeLivro() + " pelo usuário" + usuario.getNome();
+        }
     }
         
         

@@ -19,11 +19,11 @@ public interface InterfaceUsuario {
     boolean isDevedor();
     void setDevedor(boolean devedor);
 
-    int getQuantidadeDeReservas();
-    void setQuantidadeDeReservas(int quantidadeDeReservas);
+    
+    List<InterfaceLivro> getLivrosEmprestados();
+    void setLivrosEmprestados(List<InterfaceLivro> livros);
 
-    List<InterfaceLivro> getLivros();
-    void setLivros(List<InterfaceLivro> livros);
+    List<InterfaceLivro> getLivrosReservados();
 
     // Métodos comuns para alunos e professores:
     String devolucaoLivro();
@@ -33,7 +33,7 @@ public interface InterfaceUsuario {
     String emprestimo(double codigoLivro);
 
     void addEmprestimo(InterfaceLivro livro);
-    void addReserva();
+    void addReserva(InterfaceLivro livro);
     void attDevolucao();
 
     // Para retornar o tipo de usuário (não fazer instanceOFF):

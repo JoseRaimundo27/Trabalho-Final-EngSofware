@@ -14,10 +14,10 @@ public class Professores implements InterfaceUsuario {
      int limiteDeEmprestimos = 0;
     //para verificar se é devedor ou não:
     boolean devedor; //True caso seja devedor
-    int quantidadeDeReservas = 0; // Inicializa com 0 a quantidade de reservas
     
     //Usuários tem uma lista de livros:
-    private List<InterfaceLivro> livros;
+    private List<InterfaceLivro> livrosEmprestados;
+    private List<InterfaceLivro> livrosReservados;
     //MÉTODOS:
     @Override
     public String emprestimo(double codigoLivro){
@@ -42,11 +42,11 @@ public class Professores implements InterfaceUsuario {
     }
     
     public void addEmprestimo(InterfaceLivro livro){
-        this.livros.add(livro); //atualiza Lista de livros
+        this.livrosEmprestados.add(livro); //atualiza Lista de livros
     }
     
-    public void addReserva(){
-        //atualizar quantidadeDeReserva
+    public void addReserva(InterfaceLivro livro){
+        this.livrosReservados.add(livro);
         
     }
     public void attDevolucao(){
@@ -95,17 +95,15 @@ public class Professores implements InterfaceUsuario {
     public void setDevedor(boolean devedor) {
         this.devedor = devedor;
     }
-    public int getQuantidadeDeReservas() {
-        return quantidadeDeReservas;
+    public List<InterfaceLivro> getLivrosEmprestados() {
+        return livrosEmprestados;
     }
-    public void setQuantidadeDeReservas(int quantidadeDeReservas) {
-        this.quantidadeDeReservas = quantidadeDeReservas;
+    
+    public void setLivrosEmprestados(List<InterfaceLivro> livros) {
+        this.livrosEmprestados = livros;
     }
-    public List<InterfaceLivro> getLivros() {
-       return livros;
-    }
-    public void setLivros(List<InterfaceLivro> livros) {
-       this.livros = livros;
+    public List<InterfaceLivro> getLivrosReservados() {
+        return livrosReservados;
     }
     
 }

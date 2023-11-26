@@ -13,18 +13,18 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
 
 
         //PARA USUARIOS COM RESERVA:
-        if (verificaReserva(usuario)) { //Verifica se há reserva
+        if (verificaReserva(usuario, livro)) { //Verifica se há reserva
             if (usuario.isDevedor()) {
                 return "Usuário é devedor!"; // Verificando se é devedor
             } else {
                 if (usuario.isLimiteMaximo()) {// Verificando se ta no limite máximo
                     return "Limite máximo de empréstimo atingido!";
                 } else {
-                    if (usuario.getQuantidadeDeReservas() < livro.getQuantidadeDeExemplares()) { //"A quantidade de reservas for maior igual..."
+                    if (livro.getQuantidadeDeReservas() < livro.getQuantidadeDeExemplares()) { //"A quantidade de reservas for maior igual..."
                         return "Há uma quantidade de reserva maior que a de exemplares";
 
-                    }for (int i = 0; i < usuario.getLivros().size(); i++) {
-                        if (usuario.getLivros().get(i).getCodigoExemplar() == livro.getCodigoExemplar()) { // Se já
+                    }for (int i = 0; i < usuario.getLivrosEmprestados().size(); i++) {
+                        if (usuario.getLivrosEmprestados().get(i).getCodigoExemplar() == livro.getCodigoExemplar()) { // Se já
                                                                                                            // tiver
                                                                                                            // algum
                                                                                                            // exemplar
@@ -33,6 +33,7 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
                       }// Se não tiver exemplar:
                         usuario.addEmprestimo(livro); //Atualizar todos dados do emprestimo
                         usuario.removeReserva(livro);
+                        livro.removeReservaLivro();
                         return "Sucesso" + usuario.getNome() + " " + livro.getNomeLivro();
                 }
             }
@@ -46,12 +47,11 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
                 if (usuario.isLimiteMaximo()) {// Verificando se ta no limite máximo
                     return "Limite máximo de empréstimo atingido!";
                 } else {
-                    if (usuario.getQuantidadeDeReservas() > livro.getQuantidadeDeExemplares()) {
+                    if (livro.getQuantidadeDeReservas()  > livro.getQuantidadeDeExemplares()) {
                         return "Há uma quantidade de reserva maior que a de exemplares";
-
                     }
-                    for (int i = 0; i < usuario.getLivros().size(); i++) {
-                        if (usuario.getLivros().get(i).getCodigoExemplar() == livro.getCodigoExemplar()) { // Se já
+                    for (int i = 0; i < usuario.getLivrosEmprestados().size(); i++) {
+                        if (usuario.getLivrosEmprestados().get(i).getCodigoExemplar() == livro.getCodigoExemplar()) { // Se já
                                                                                                            // tiver
                                                                                                            // algum
                                                                                                            // exemplar
@@ -65,9 +65,9 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
         }
     }
 
-    public boolean verificaReserva(InterfaceUsuario usuario) { // Verifica se há reserva
-        for (int i = 0; i < usuario.getLivros().size(); i++) {
-            if (usuario.getLivros().get(i).isStatusReserva()) {
+    public boolean verificaReserva(InterfaceUsuario usuario, InterfaceLivro livro) { // Verifica se há reserva
+        for (int i = 0; i < usuario.getLivrosReservados().size(); i++) {
+            if (usuario.getLivrosReservados().get(i) == livro) {
                 return true;
             }
         }

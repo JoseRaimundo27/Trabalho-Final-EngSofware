@@ -16,11 +16,12 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     // para verificar se é devedor ou não:
     boolean devedor, limiteMaximo = false; // True caso seja devedor ou estorou limite de emprestimos
     int quantidadeDeEmprestimos = 0; // Inicializa com 0 a quantidade de emprestimos
-    int quantidadeDeReservas = 0; // Inicializa com 0 a quantidade de reservas
 
     //Usuários tem uma lista de livros:
-    private List<InterfaceLivro> livros;
+    private List<InterfaceLivro> livrosEmprestados;
+    private List<InterfaceLivro> livrosReservados;
     
+
     // MÉTODOS:
     @Override
     public String emprestimo(double codigoLivro) {
@@ -50,11 +51,11 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
         if(this.quantidadeDeEmprestimos == this.limiteDeEmprestimos){
             setLimiteMaximo(true);
         }
-        this.livros.add(livro); //atualiza Lista de livros
+        this.livrosEmprestados.add(livro); //atualiza Lista de livros
     }
     
-    public void addReserva(){
-        //atualizar quantidadeDeReserva
+    public void addReserva(InterfaceLivro livro){
+        this.livrosReservados.add(livro);
         
     }
     public void removeReserva(InterfaceLivro livro){
@@ -121,21 +122,16 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     
     public void setQuantidadeDeEmprestimos(int quantidadeDeEmprestimos) {
         this.quantidadeDeEmprestimos = quantidadeDeEmprestimos;
+    } 
+    
+    public List<InterfaceLivro> getLivrosEmprestados() {
+        return livrosEmprestados;
     }
     
-    public int getQuantidadeDeReservas() {
-        return quantidadeDeReservas;
+    public void setLivrosEmprestados(List<InterfaceLivro> livros) {
+        this.livrosEmprestados = livros;
     }
-    
-    public void setQuantidadeDeReservas(int quantidadeDeReservas) {
-        this.quantidadeDeReservas = quantidadeDeReservas;
-    }
-    
-    public List<InterfaceLivro> getLivros() {
-        return livros;
-    }
-    
-    public void setLivros(List<InterfaceLivro> livros) {
-        this.livros = livros;
+     public List<InterfaceLivro> getLivrosReservados() {
+        return livrosReservados;
     }
 }

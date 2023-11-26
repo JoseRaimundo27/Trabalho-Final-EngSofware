@@ -15,6 +15,5 @@ public class realizadorEmprestimoProfessor implements InterfaceRealizadorEmprest
             usuario.addEmprestimo(livro);
             return "Sucesso" + usuario.getNome() + " " + livro.getNomeLivro();
         }
-        
     }
 }

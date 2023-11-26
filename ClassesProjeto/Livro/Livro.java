@@ -12,9 +12,8 @@ public class Livro implements InterfaceLivro {
     
     //Quantidade de exemplares disponíveis
     private int quantidadeDeExemplares;
-    
-    
-    
+    private int quantidadeDeReservas;
+
     public Livro(double codigoLivro, String nomeLivro, int codigoExemplar, boolean statusExemplar, String editora,
     String autores, String edicao, double anoPublicacao) {
         this.codigoLivro = codigoLivro;
@@ -27,6 +26,15 @@ public class Livro implements InterfaceLivro {
         this.anoPublicacao = anoPublicacao;
     }
     
+    public void addReservaLivro(){
+        //Incrementa a reserva do livro
+        this.quantidadeDeReservas ++;
+    }
+    public void removeReservaLivro(){
+        //Decrementa a reserva do livro
+        this.quantidadeDeReservas --;
+    }
+
     //GETTERS E SETTER:
     @Override
     public double getCodigoLivro() {
@@ -136,5 +144,12 @@ public class Livro implements InterfaceLivro {
     
     public void setStatusReserva(boolean statusReserva) {
         this.statusReserva = statusReserva;
+    }
+    public int getQuantidadeDeReservas() {
+        return quantidadeDeReservas;
+    }
+
+    public void setQuantidadeDeReservas(int quantidadeDeReservas) {
+        this.quantidadeDeReservas = quantidadeDeReservas;
     }
 }
