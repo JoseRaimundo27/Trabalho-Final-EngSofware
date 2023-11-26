@@ -2,6 +2,7 @@ package ClassesProjeto.Usuarios;
 
 import java.util.List;
 
+import ClassesProjeto.Gerenciador.Biblioteca;
 import ClassesProjeto.Gerenciador.InterfaceRealizadorEmprestimo;
 import ClassesProjeto.Gerenciador.realizadorEmprestimoAluno;
 import ClassesProjeto.Livro.InterfaceLivro;
@@ -10,10 +11,10 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     String nome;
     double codigoIdentificacao;
     // Especifidades:
-    int tempoEmprestimo = 3;
+    int tempoEmprestimo = 3; //FALTA FAZER CODIGO PRA ELE
     int limiteDeEmprestimos = 3;
     // para verificar se é devedor ou não:
-    boolean devedor, limiteMaximo; // True caso seja devedor ou estorou limite de emprestimos
+    boolean devedor, limiteMaximo = false; // True caso seja devedor ou estorou limite de emprestimos
     int quantidadeDeEmprestimos = 0; // Inicializa com 0 a quantidade de emprestimos
     int quantidadeDeReservas = 0; // Inicializa com 0 a quantidade de reservas
 
@@ -22,8 +23,9 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     
     // MÉTODOS:
     @Override
-    public String emprestimo() {
-        return "";
+    public String emprestimo(double codigoLivro) {
+        Biblioteca bib = new Biblioteca();
+        return bib.criarEmprestimo(this.codigoIdentificacao, codigoLivro);
     }
     
     @Override
@@ -43,8 +45,13 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     
     
     public void addEmprestimo(InterfaceLivro livro){
-        //atualizar quantidadeDeEmprestimo: verificar se estorou limite maximo
-        //atualizar Lista de livros
+        //atualizar quantidadeDeEmprestimo: verificar se estorou limite maximo e seta true
+        this.quantidadeDeEmprestimos ++; //Incrementa qntd de emprestimos
+        if(this.quantidadeDeEmprestimos == this.limiteDeEmprestimos){
+            setLimiteMaximo(true);
+        }
+        this.livros.add(livro); //atualiza Lista de livros
+    
     }
     
     public void addReserva(){
@@ -56,6 +63,7 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     }
     public void attDevolucao(){
         //Retirar da lista de livros
+        // Decrementar qntd de emprestimos e ver se saiu do limite
     }
     
     

@@ -28,7 +28,7 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
                                                                                                            // tiver
                                                                                                            // algum
                                                                                                            // exemplar
-                            return "Usuário já possue um exemplar deste livro";
+                            return "Usuário já possui um exemplar deste livro";
                         } 
                       }// Se não tiver exemplar:
                         usuario.addEmprestimo(livro); //Atualizar todos dados do emprestimo
@@ -55,11 +55,10 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
                                                                                                            // tiver
                                                                                                            // algum
                                                                                                            // exemplar
-                            return "Usuário já possue um exemplar deste livro";
+                            return "Usuário já possui um exemplar deste livro";
                         } 
                     }// Se não tiver exemplar:
                         usuario.addEmprestimo(livro); //Atualizar todos dados do emprestimo
-                        usuario.removeReserva(livro);
                         return "Sucesso" + usuario.getNome() + " " + livro.getNomeLivro();
                 }
             }

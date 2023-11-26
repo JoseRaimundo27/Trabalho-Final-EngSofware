@@ -20,7 +20,7 @@ public class Professores implements InterfaceUsuario {
     private List<InterfaceLivro> livros;
     //MÉTODOS:
     @Override
-    public String emprestimo(){
+    public String emprestimo(double codigoLivro){
         return "";
     }
     @Override

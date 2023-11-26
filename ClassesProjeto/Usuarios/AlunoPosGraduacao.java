@@ -2,6 +2,7 @@ package ClassesProjeto.Usuarios;
 
 import java.util.List;
 
+import ClassesProjeto.Gerenciador.Biblioteca;
 import ClassesProjeto.Gerenciador.InterfaceRealizadorEmprestimo;
 import ClassesProjeto.Gerenciador.realizadorEmprestimoAluno;
 import ClassesProjeto.Livro.InterfaceLivro;
@@ -22,8 +23,9 @@ public class AlunoPosGraduacao implements InterfaceUsuarioAluno{
 
     //MÉTODOS:
     @Override
-    public String emprestimo(){
-        return "";
+    public String emprestimo(double codigoLivro){
+        Biblioteca bib = new Biblioteca();
+        return bib.criarEmprestimo(this.codigoIdentificacao, codigoLivro);
     }
     @Override
     public String devolucaoLivro(){
@@ -41,8 +43,13 @@ public class AlunoPosGraduacao implements InterfaceUsuarioAluno{
     
     //Incrementa quantidade de emprestimos
     public void addEmprestimo(InterfaceLivro livro){
-        //atualizar quantidadeDeEmprestimo: verificar se estorou limite maximo
-        //atualizar Lista de livros
+        //atualizar quantidadeDeEmprestimo: verificar se estorou limite maximo e seta true
+        this.quantidadeDeEmprestimos ++; //Incrementa qntd de emprestimos
+        if(this.quantidadeDeEmprestimos == this.limiteDeEmprestimos){
+            setLimiteMaximo(true);
+        }
+        this.livros.add(livro); //atualiza Lista de livros
+    
     }
     
     public void addReserva(){

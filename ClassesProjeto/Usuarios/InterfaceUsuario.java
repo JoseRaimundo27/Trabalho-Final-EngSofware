@@ -30,7 +30,7 @@ public interface InterfaceUsuario {
 
     String reservaLivro();
 
-    String emprestimo();
+    String emprestimo(double codigoLivro);
 
     void addEmprestimo(InterfaceLivro livro);
     void addReserva();

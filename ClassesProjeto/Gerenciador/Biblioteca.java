@@ -48,15 +48,15 @@ public class Biblioteca {
         }
 
         if(livro.isStatusExemplar()){ //verifica se exemplar está disponível
-            usuario.obterTipoEmprestimo().realizarEmprestimo(usuario,livro); // A partir do tipo de emprestimo em questão, eu vou criar o emprestimo, respeitando as regras da criação de empréstimo diferentes entre professores e alunos
-            return "";
+            return usuario.obterTipoEmprestimo().realizarEmprestimo(usuario,livro); // A partir do tipo de emprestimo em questão, eu vou criar o emprestimo, respeitando as regras da criação de empréstimo diferentes entre professores e alunos
+            
 
         }else{
             return "Exemplar do livro não está disponível!";
         }
-    
+    }
 
-
+    public void registroEmprestimo(){ //REGISTRAR OPERAÇÃO NO SISTEMA E FIXAR DATA DE DEVOLUÇÃO
 
     }
     
