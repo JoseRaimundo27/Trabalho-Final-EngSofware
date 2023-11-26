@@ -9,6 +9,12 @@ public class realizadorEmprestimoProfessor implements InterfaceRealizadorEmprest
     @Override
     public String realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
         InterfaceUsuarioProfessor usuario = (InterfaceUsuarioProfessor)u;
-        return "";
+        if (usuario.isDevedor()) {
+            return "Usuário é devedor!"; // Verificando se é devedor
+        }else{
+            usuario.addEmprestimo(livro);
+            return "Sucesso" + usuario.getNome() + " " + livro.getNomeLivro();
+        }
+        
     }
 }

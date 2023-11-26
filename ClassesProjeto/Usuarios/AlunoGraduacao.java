@@ -51,7 +51,6 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
             setLimiteMaximo(true);
         }
         this.livros.add(livro); //atualiza Lista de livros
-    
     }
     
     public void addReserva(){

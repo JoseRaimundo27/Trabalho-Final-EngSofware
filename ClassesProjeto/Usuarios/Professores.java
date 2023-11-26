@@ -42,8 +42,7 @@ public class Professores implements InterfaceUsuario {
     }
     
     public void addEmprestimo(InterfaceLivro livro){
-        //atualizar quantidadeDeEmprestimo: verificar se estorou limite maximo
-        //atualizar Lista de livros
+        this.livros.add(livro); //atualiza Lista de livros
     }
     
     public void addReserva(){
@@ -52,6 +51,7 @@ public class Professores implements InterfaceUsuario {
     }
     public void attDevolucao(){
         //Retirar da lista de livros
+        //Setar devedor pra 0
     }
     
     
