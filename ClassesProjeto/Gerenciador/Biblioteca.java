@@ -48,7 +48,7 @@ public class Biblioteca {
         }
 
         if(livro.isStatusExemplar()){ //verifica se exemplar está disponível
-            usuario.obterTipoEmprestimo().realizarEmprestimo(usuario); // A partir do tipo de emprestimo em questão, eu vou criar o emprestimo, respeitando as regras da criação de empréstimo diferentes entre professores e alunos
+            usuario.obterTipoEmprestimo().realizarEmprestimo(usuario,livro); // A partir do tipo de emprestimo em questão, eu vou criar o emprestimo, respeitando as regras da criação de empréstimo diferentes entre professores e alunos
             return "";
 
         }else{

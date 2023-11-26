@@ -34,4 +34,6 @@ public interface InterfaceLivro {
 
     void setAnoPublicacao(double anoPublicacao);
 
+    int getQuantidadeDeExemplares();
+    void setQuantidadeDeExemplares(int quantidadeDeExemplares);
 }

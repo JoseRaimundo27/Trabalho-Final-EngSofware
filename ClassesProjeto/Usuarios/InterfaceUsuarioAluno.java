@@ -7,4 +7,5 @@ public interface InterfaceUsuarioAluno extends InterfaceUsuario{
 
     boolean isLimiteMaximo();
     void setLimiteMaximo(boolean limiteMaximo);
+    
 }
