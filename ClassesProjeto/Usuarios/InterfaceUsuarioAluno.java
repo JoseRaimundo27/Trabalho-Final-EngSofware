@@ -1,4 +1,5 @@
 package ClassesProjeto.Usuarios;
+import ClassesProjeto.Livro.InterfaceLivro;
 
 public interface InterfaceUsuarioAluno extends InterfaceUsuario{
     //Alunos têm limite de qntd de empréstimo (que professor ñ tem)
@@ -7,5 +8,7 @@ public interface InterfaceUsuarioAluno extends InterfaceUsuario{
 
     boolean isLimiteMaximo();
     void setLimiteMaximo(boolean limiteMaximo);
+     
+    void removeReserva(InterfaceLivro livro);
     
 }

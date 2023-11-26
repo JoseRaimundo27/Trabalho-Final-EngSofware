@@ -36,4 +36,7 @@ public interface InterfaceLivro {
 
     int getQuantidadeDeExemplares();
     void setQuantidadeDeExemplares(int quantidadeDeExemplares);
+
+    boolean isStatusReserva();
+    void setStatusReserva(boolean statusReserva);
 }

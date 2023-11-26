@@ -4,16 +4,16 @@ public class Livro implements InterfaceLivro {
     private double codigoLivro;
     private String nomeLivro;
     private int codigoExemplar;
-    private boolean statusExemplar; //True = disponivel;   False = não disponível
-
+    private boolean statusExemplar = true; //True = disponivel;   False = não disponível
+    private boolean statusReserva = false; // //True = reservado;   False = não reservado
     //"informações adicionais":
     private String editora, autores, edicao;
     private double anoPublicacao;
-
+    
     //Quantidade de exemplares disponíveis
     private int quantidadeDeExemplares;
     
-
+    
     
     public Livro(double codigoLivro, String nomeLivro, int codigoExemplar, boolean statusExemplar, String editora,
     String autores, String edicao, double anoPublicacao) {
@@ -130,4 +130,11 @@ public class Livro implements InterfaceLivro {
         this.quantidadeDeExemplares = quantidadeDeExemplares;
     }
     
+    public boolean isStatusReserva() {
+        return statusReserva;
+    }
+    
+    public void setStatusReserva(boolean statusReserva) {
+        this.statusReserva = statusReserva;
+    }
 }

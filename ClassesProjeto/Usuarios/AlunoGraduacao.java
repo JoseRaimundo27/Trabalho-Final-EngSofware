@@ -51,6 +51,9 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
         //atualizar quantidadeDeReserva
         
     }
+    public void removeReserva(InterfaceLivro livro){
+        //diminuir quantidadeDeReserva
+    }
     public void attDevolucao(){
         //Retirar da lista de livros
     }
