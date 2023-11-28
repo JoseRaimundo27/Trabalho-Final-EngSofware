@@ -20,20 +20,16 @@ public class Biblioteca {
     
 
      //MÉTODOS:
-    public boolean criarReserva(double codigoUsuario, double codigoLivro){
+    public void criarReserva(double codigoUsuario, double codigoLivro){
         ServicoReserva res = new ServicoReserva();
         res.criarReserva(this.usuarios, this.livros, codigoUsuario, codigoLivro);
-        this.livrosReservados.add(res.getLivroReservados());// Salvando livro no sistema
-        if(res.criarReserva(this.usuarios, this.livros,codigoUsuario,codigoLivro)){
-            return true;
-        }else{
-            return false;
+        if(res.criarReserva(this.usuarios, this.livros,codigoUsuario,codigoLivro)){ //Se efetuou a reserva:
+            this.livrosReservados.add(res.getLivroReservados());// Salvando livro no sistema
         }
-        
     }
         
         
-    public boolean criarEmprestimo(double codigoUsuario, double codigoLivro){
+    public void criarEmprestimo(double codigoUsuario, double codigoLivro){
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros,codigoLivro);
 
@@ -41,14 +37,9 @@ public class Biblioteca {
             usuario.obterTipoEmprestimo().realizarEmprestimo(usuario,livro); // A partir do tipo de emprestimo em questão, eu vou criar o emprestimo, respeitando as regras da criação de empréstimo diferentes entre professores e alunos
             if( usuario.obterTipoEmprestimo().realizarEmprestimo(usuario,livro)){ //Se deu certo ( retornou true)
                 this.livrosEmprestados.add(livro);
-                return true;
-            }else{
-                return false;
             }
-
         }else{
             System.out.println( "Exemplar do livro não está disponível!");
-            return false;
         }
     }
     
