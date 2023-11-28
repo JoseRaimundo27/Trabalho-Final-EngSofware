@@ -29,6 +29,7 @@ public interface InterfaceUsuario {
 
     void addEmprestimo(InterfaceLivro livro);
     void addReserva(InterfaceLivro livro);
+    void removeReserva(InterfaceLivro livro);
     void attDevolucao(InterfaceLivro livro);
 
     // Para retornar o tipo de usuário (não fazer instanceOFF):

@@ -1,6 +1,6 @@
 package ClassesProjeto.Gerenciador;
 //CLASSE FACHADA e SINGLETON -> SÓ TERÁ UMA ISNTÂNCIA
-//TRANSFORMAR ESSAS FUNÇÕES EM VOID
+//TRANSFORMAR EM SINGLETON
 //NO FINAL DIMINUIR A CLASSE BIBLIOTECA EM UMA SERIE DE OUTRAS CLASSES - DISTRIBUIR A FUNÇÃO!
 
 import java.util.List;
@@ -50,7 +50,7 @@ public class Biblioteca {
 
     public void criarObservador(double codigoUsuario, double codigoLivro){
         InterfaceServicoObservador obs = new ServicoObservador();
-
+        obs.criarObservador(codigoUsuario, codigoLivro, usuarios, livros);
     }
    
 }

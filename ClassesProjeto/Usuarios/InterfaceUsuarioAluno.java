@@ -9,6 +9,6 @@ public interface InterfaceUsuarioAluno extends InterfaceUsuario{
     boolean isLimiteMaximo();
     void setLimiteMaximo(boolean limiteMaximo);
      
-    void removeReserva(InterfaceLivro livro);
+    
     
 }
