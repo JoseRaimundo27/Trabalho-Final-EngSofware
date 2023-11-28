@@ -35,14 +35,6 @@ public class Biblioteca {
     public boolean criarEmprestimo(double codigoUsuario, double codigoLivro){
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros,codigoLivro);
-        if(livro == null){
-            System.out.println("Codigo do livro inválido!"); 
-            return false;
-        }
-        if(usuario == null){
-            System.out.println("Codigo do usuário inválido!");
-            return false;
-        }
 
         if(livro.isStatusExemplar()){ //verifica se exemplar está disponível
             usuario.obterTipoEmprestimo().realizarEmprestimo(usuario,livro); // A partir do tipo de emprestimo em questão, eu vou criar o emprestimo, respeitando as regras da criação de empréstimo diferentes entre professores e alunos

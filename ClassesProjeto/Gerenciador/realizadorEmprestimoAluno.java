@@ -10,7 +10,14 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
     public boolean realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
         InterfaceUsuarioAluno usuario = (InterfaceUsuarioAluno) u; // Realizando Downcasting para acessar metodos do
                                                                    // filho InterfacUsuarioAluno (limite de emprestimo)
-
+        if(livro == null){
+            System.out.println("Codigo do livro inválido!"); 
+            return false;
+        }
+        if(usuario == null){
+            System.out.println("Codigo do usuário inválido!");
+            return false;
+        }
 
         //PARA USUARIOS COM RESERVA:
         if (verifica.verificaReserva(usuario, livro)) { //Verifica se há reserva
