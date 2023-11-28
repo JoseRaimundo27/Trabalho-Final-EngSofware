@@ -1,4 +1,5 @@
 package ClassesProjeto.Gerenciador;
+//CLASSE FACHADA e SINGLETON -> SÓ TERÁ UMA ISNTÂNCIA
 //NO FINAL DIMINUIR A CLASSE BIBLIOTECA EM UMA SERIE DE OUTRAS CLASSES - DISTRIBUIR A FUNÇÃO!
 
 import java.util.List;
@@ -10,31 +11,14 @@ public class Biblioteca {
     private List<InterfaceLivro> livros;
     private List<InterfaceUsuario> usuarios; //Principio aberto e fechado -> Será do tipo da interface pai. Usarei obterTipoUsuario() para retornar o tipo de usário em questão, e não usar instanceOFF
 
-    
-     private int diasDevolucao;
+    getByCodigo buscador = new getByCodigo();
 
      //MÉTODOS:
-    public InterfaceLivro getLivroByCodigo(double codigoLivro){
-        for(int i=0;i<livros.size();i++){
-            if(livros.get(i).getCodigoLivro() == codigoLivro){
-                return livros.get(i);
-            }
-        }
-        return null;
-
-    }
-   public InterfaceUsuario getUsuarioByCodigoUsuario(double codigoIdentificacao){
-        for(int i=0;i<usuarios.size();i++){
-            if(usuarios.get(i).getCodigoIdentificacao() == codigoIdentificacao){
-                return usuarios.get(i);
-            }
-        }
-        return null;
-    }
-
+   
+    
     public String criarReserva(double codigoUsuario, double codigoLivro){
-        InterfaceUsuario usuario = getUsuarioByCodigoUsuario(codigoUsuario);
-        InterfaceLivro livro = getLivroByCodigo(codigoLivro);
+        InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
+        InterfaceLivro livro = buscador.getLivroByCodigo(livros,codigoLivro);
         if(livro == null){
             return "Codigo do livro inválido!";
         }
@@ -52,8 +36,8 @@ public class Biblioteca {
         
         
     public String criarEmprestimo(double codigoUsuario, double codigoLivro){
-        InterfaceUsuario usuario = getUsuarioByCodigoUsuario(codigoUsuario);
-        InterfaceLivro livro = getLivroByCodigo(codigoLivro);
+        InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
+        InterfaceLivro livro = buscador.getLivroByCodigo(livros,codigoLivro);
         if(livro == null){
             return "Codigo do livro inválido!";
         }

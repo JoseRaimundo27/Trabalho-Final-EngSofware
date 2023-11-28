@@ -5,7 +5,7 @@ import ClassesProjeto.Usuarios.InterfaceUsuario;
 import ClassesProjeto.Livro.InterfaceLivro;
 
 public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo {
-
+   VerificadorReserva verifica = new VerificadorReserva();
     @Override
     public String realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
         InterfaceUsuarioAluno usuario = (InterfaceUsuarioAluno) u; // Realizando Downcasting para acessar metodos do
@@ -13,7 +13,7 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
 
 
         //PARA USUARIOS COM RESERVA:
-        if (verificaReserva(usuario, livro)) { //Verifica se há reserva
+        if (verifica.verificaReserva(usuario, livro)) { //Verifica se há reserva
             if (usuario.isDevedor()) {
                 return "Usuário é devedor!"; // Verificando se é devedor
             } else {
@@ -65,13 +65,6 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
         }
     }
 
-    public boolean verificaReserva(InterfaceUsuario usuario, InterfaceLivro livro) { // Verifica se há reserva
-        for (int i = 0; i < usuario.getLivrosReservados().size(); i++) {
-            if (usuario.getLivrosReservados().get(i) == livro) {
-                return true;
-            }
-        }
-        return false;
-    }
+    
 
 }
