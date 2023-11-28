@@ -47,5 +47,10 @@ public class Biblioteca {
         ServicoDevolucao dev = new ServicoDevolucao();
         dev.criarDevolucao(codigoUsuario, codigoLivro, this.usuarios, this.livros);
     }
+
+    public void criarObservador(double codigoUsuario, double codigoLivro){
+        InterfaceServicoObservador obs = new ServicoObservador();
+
+    }
    
 }

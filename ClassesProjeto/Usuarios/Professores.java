@@ -18,10 +18,16 @@ public class Professores implements InterfaceUsuario {
     //Usuários tem uma lista de livros:
     private List<InterfaceLivro> livrosEmprestados;
     private List<InterfaceLivro> livrosReservados;
+
+    //Para observadores:
+    private List<InterfaceLivro> livrosObservados;
+    private int qntDeNotificacao = 0;
     //MÉTODOS:
-    
-    public String observarLivro(){
-        return "";
+    public void attLivrosObservados(InterfaceLivro livro){
+        this.livrosObservados.add(livro);
+    }
+    public void registarNotificacao(){
+        this.qntDeNotificacao ++;
     }
     
     //Para retornar o tipo de empréstimo (não fazer instanceOFF):
@@ -92,5 +98,10 @@ public class Professores implements InterfaceUsuario {
     public List<InterfaceLivro> getLivrosReservados() {
         return livrosReservados;
     }
-    
+    public List<InterfaceLivro> getLivrosObservados() {
+        return livrosObservados;
+    }
+    public int getQntDeNotificacao() {
+        return qntDeNotificacao;
+    }
 }
