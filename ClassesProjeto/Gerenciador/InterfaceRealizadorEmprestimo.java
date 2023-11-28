@@ -5,5 +5,5 @@ import ClassesProjeto.Livro.InterfaceLivro;
 
 public interface InterfaceRealizadorEmprestimo {
     
-    String realizarEmprestimo(InterfaceUsuario usuario, InterfaceLivro livro);
+    boolean realizarEmprestimo(InterfaceUsuario usuario, InterfaceLivro livro);
 }

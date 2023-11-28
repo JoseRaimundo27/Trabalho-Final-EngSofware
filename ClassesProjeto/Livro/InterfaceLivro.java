@@ -43,6 +43,8 @@ public interface InterfaceLivro {
     int getQuantidadeDeReservas();
     void setQuantidadeDeReservas(int quantidadeDeReservas);
 
+    void setDiasDevolucao(int diasDevolucao);
+
     void addReservaLivro();
     void removeReservaLivro();
 }

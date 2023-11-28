@@ -26,11 +26,6 @@ public interface InterfaceUsuario {
     List<InterfaceLivro> getLivrosReservados();
 
     // Métodos comuns para alunos e professores:
-    String devolucaoLivro();
-
-    String reservaLivro();
-
-    String emprestimo(double codigoLivro);
 
     void addEmprestimo(InterfaceLivro livro);
     void addReserva(InterfaceLivro livro);

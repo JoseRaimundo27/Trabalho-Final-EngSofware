@@ -19,18 +19,6 @@ public class Professores implements InterfaceUsuario {
     private List<InterfaceLivro> livrosEmprestados;
     private List<InterfaceLivro> livrosReservados;
     //MÉTODOS:
-    @Override
-    public String emprestimo(double codigoLivro){
-        return "";
-    }
-    @Override
-    public String devolucaoLivro(){
-        return "";
-    }
-    @Override
-    public String reservaLivro(){
-        return "";
-    }
     
     public String observarLivro(){
         return "";
@@ -53,8 +41,6 @@ public class Professores implements InterfaceUsuario {
         //Retirar da lista de livros
         //Setar devedor pra 0
     }
-    
-    
     
     //GETTER E SETTERS:
     

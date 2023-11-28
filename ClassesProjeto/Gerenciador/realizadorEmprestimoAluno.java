@@ -7,59 +7,70 @@ import ClassesProjeto.Livro.InterfaceLivro;
 public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo {
    VerificadorReserva verifica = new VerificadorReserva();
     @Override
-    public String realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
+    public boolean realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
         InterfaceUsuarioAluno usuario = (InterfaceUsuarioAluno) u; // Realizando Downcasting para acessar metodos do
                                                                    // filho InterfacUsuarioAluno (limite de emprestimo)
 
 
         //PARA USUARIOS COM RESERVA:
         if (verifica.verificaReserva(usuario, livro)) { //Verifica se há reserva
-            if (usuario.isDevedor()) {
-                return "Usuário é devedor!"; // Verificando se é devedor
+            if (usuario.isDevedor()) { //Verifica se é devedor
+                System.out.println("Usuário é devedor!");
+                return false;
             } else {
                 if (usuario.isLimiteMaximo()) {// Verificando se ta no limite máximo
-                    return "Limite máximo de empréstimo atingido!";
+                    System.out.println("Usuário é devedor!");
+                    return false;
                 } else {
                     if (livro.getQuantidadeDeReservas() < livro.getQuantidadeDeExemplares()) { //"A quantidade de reservas for maior igual..."
-                        return "Há uma quantidade de reserva maior que a de exemplares";
+                        System.out.println("Há uma quantidade de reserva maior que a de exemplares");
+                        return false;
 
                     }for (int i = 0; i < usuario.getLivrosEmprestados().size(); i++) {
                         if (usuario.getLivrosEmprestados().get(i).getCodigoExemplar() == livro.getCodigoExemplar()) { // Se já
                                                                                                            // tiver
                                                                                                            // algum
                                                                                                            // exemplar
-                            return "Usuário já possui um exemplar deste livro";
+                            System.out.println("Usuário já possui um exemplar deste livro");
+                            return false;
                         } 
                       }// Se não tiver exemplar:
                         usuario.addEmprestimo(livro); //Atualizar todos dados do emprestimo
                         usuario.removeReserva(livro);
                         livro.removeReservaLivro();
-                        return "Sucesso" + usuario.getNome() + " " + livro.getNomeLivro();
+                        System.out.println("Sucesso" + usuario.getNome() + " " + livro.getNomeLivro());
+                        return true;
                 }
             }
         }
         
             //PARA USUARIOS SEM RESERVA:
         else {
-            if (usuario.isDevedor()) {
-                return "Usuário é devedor!"; // Verificando se é devedor
+            if (usuario.isDevedor()) {// Verificando se é devedor
+                System.out.println("Usuário é devedor!");
+                return false;
             } else {
                 if (usuario.isLimiteMaximo()) {// Verificando se ta no limite máximo
-                    return "Limite máximo de empréstimo atingido!";
+                    System.out.println("Limite máximo de empréstimo atingido!");
+                    return false;
                 } else {
                     if (livro.getQuantidadeDeReservas()  > livro.getQuantidadeDeExemplares()) {
-                        return "Há uma quantidade de reserva maior que a de exemplares";
+                        System.out.println("Há uma quantidade de reserva maior que a de exemplares");
+                        return false;
                     }
                     for (int i = 0; i < usuario.getLivrosEmprestados().size(); i++) {
                         if (usuario.getLivrosEmprestados().get(i).getCodigoExemplar() == livro.getCodigoExemplar()) { // Se já
                                                                                                            // tiver
                                                                                                            // algum
                                                                                                            // exemplar
-                            return "Usuário já possui um exemplar deste livro";
+                            System.out.println("Usuário já possui um exemplar deste livro");
+                            return false;
                         } 
                     }// Se não tiver exemplar:
                         usuario.addEmprestimo(livro); //Atualizar todos dados do emprestimo
-                        return "Sucesso" + usuario.getNome() + " " + livro.getNomeLivro();
+                        livro.setDiasDevolucao(usuario.getTempoEmprestimo()); //seta quantidade de dias que ele pode ficar com o livro
+                        System.out.println("Sucesso" + usuario.getNome() + " " + livro.getNomeLivro());
+                        return true;
                 }
             }
         }

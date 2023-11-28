@@ -13,6 +13,7 @@ public class Livro implements InterfaceLivro {
     //Quantidade de exemplares disponíveis
     private int quantidadeDeExemplares;
     private int quantidadeDeReservas;
+    private int diasDevolucao;
 
     public Livro(double codigoLivro, String nomeLivro, int codigoExemplar, boolean statusExemplar, String editora,
     String autores, String edicao, double anoPublicacao) {
@@ -33,6 +34,9 @@ public class Livro implements InterfaceLivro {
     public void removeReservaLivro(){
         //Decrementa a reserva do livro
         this.quantidadeDeReservas --;
+    }
+    public void decrementaDiasDevolucao(){
+        this.diasDevolucao --; //A cada dia o dia de devolução é decrementado
     }
 
     //GETTERS E SETTER:
@@ -151,5 +155,11 @@ public class Livro implements InterfaceLivro {
 
     public void setQuantidadeDeReservas(int quantidadeDeReservas) {
         this.quantidadeDeReservas = quantidadeDeReservas;
+    }
+     public int getDiasDevolucao() {
+        return diasDevolucao;
+    }
+    public void setDiasDevolucao(int diasDevolucao) {
+        this.diasDevolucao = diasDevolucao;
     }
 }

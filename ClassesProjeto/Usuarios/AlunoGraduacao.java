@@ -1,8 +1,6 @@
 package ClassesProjeto.Usuarios;
 
 import java.util.List;
-
-import ClassesProjeto.Gerenciador.Biblioteca;
 import ClassesProjeto.Gerenciador.InterfaceRealizadorEmprestimo;
 import ClassesProjeto.Gerenciador.realizadorEmprestimoAluno;
 import ClassesProjeto.Livro.InterfaceLivro;
@@ -23,21 +21,6 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     
 
     // MÉTODOS:
-    @Override
-    public String emprestimo(double codigoLivro) {
-        Biblioteca bib = new Biblioteca();
-        return bib.criarEmprestimo(this.codigoIdentificacao, codigoLivro);
-    }
-    
-    @Override
-    public String devolucaoLivro() {
-        return "";
-    }
-    
-    @Override
-    public String reservaLivro() {
-        return "";
-    }
     
     // Para retornar o tipo de empréstimo (não fazer instanceOFF):
     public InterfaceRealizadorEmprestimo obterTipoEmprestimo() {

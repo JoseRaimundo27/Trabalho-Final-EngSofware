@@ -7,13 +7,16 @@ import ClassesProjeto.Livro.InterfaceLivro;
 public class realizadorEmprestimoProfessor implements InterfaceRealizadorEmprestimo {
     
     @Override
-    public String realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
+    public boolean realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
         InterfaceUsuarioProfessor usuario = (InterfaceUsuarioProfessor)u;
-        if (usuario.isDevedor()) {
-            return "Usuário é devedor!"; // Verificando se é devedor
+        if (usuario.isDevedor()) {// Verificando se é devedor
+            System.out.println("Usuário é devedor!");
+            return false;
         }else{
             usuario.addEmprestimo(livro);
-            return "Sucesso" + usuario.getNome() + " " + livro.getNomeLivro();
+            livro.setDiasDevolucao(usuario.getTempoEmprestimo()); //seta quantidade de dias que ele pode ficar com o livro
+            System.out.println("Sucesso" + usuario.getNome() + " " + livro.getNomeLivro()); 
+            return true;
         }
     }
 }
