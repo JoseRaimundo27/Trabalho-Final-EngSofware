@@ -20,27 +20,15 @@ public class Biblioteca {
 
      //MÉTODOS:
     public boolean criarReserva(double codigoUsuario, double codigoLivro){
-        InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
-        InterfaceLivro livro = buscador.getLivroByCodigo(livros,codigoLivro);
-        if(livro == null){
-            System.out.println("Codigo do livro inválido!");
-            return false;
-        }
-        if(usuario == null){
-            System.out.println( "Código de usuário inválido!");
-            return false;
-        }
-        if(usuario.getLivrosReservados().size() == 3){
-            System.out.println("Usuário já reservou 3 livros!"); 
-            return false;
-            
-        }else{
-            livro.addReservaLivro();
-            usuario.addReserva(livro);
-            livrosReservados.add(livro); //Salvando no sistema
-            System.out.println("Sucesso ao reservar" + livro.getNomeLivro() + " pelo usuário" + usuario.getNome()); 
+        ServicoReserva res = new ServicoReserva();
+        res.criarReserva(this.usuarios, this.livros, codigoUsuario, codigoLivro);
+        this.livrosReservados.add(res.getLivroReservados());// Salvando livro no sistema
+        if(res.criarReserva(this.usuarios, this.livros,codigoUsuario,codigoLivro)){
             return true;
+        }else{
+            return false;
         }
+        
     }
         
         
