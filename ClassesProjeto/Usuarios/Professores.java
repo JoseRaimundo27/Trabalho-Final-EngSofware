@@ -37,9 +37,10 @@ public class Professores implements InterfaceUsuario {
         this.livrosReservados.add(livro);
         
     }
-    public void attDevolucao(){
+    public void attDevolucao(InterfaceLivro livro){
+        this.livrosEmprestados.remove(livro);
         //Retirar da lista de livros
-        //Setar devedor pra 0
+        // Decrementar qntd de emprestimos e ver se saiu do limite
     }
     
     //GETTER E SETTERS:

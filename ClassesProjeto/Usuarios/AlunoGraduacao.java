@@ -44,7 +44,9 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     public void removeReserva(InterfaceLivro livro){
         //diminuir quantidadeDeReserva
     }
-    public void attDevolucao(){
+    public void attDevolucao(InterfaceLivro livro){
+        this.livrosEmprestados.remove(livro);
+        this.quantidadeDeEmprestimos --;
         //Retirar da lista de livros
         // Decrementar qntd de emprestimos e ver se saiu do limite
     }

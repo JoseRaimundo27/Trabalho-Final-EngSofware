@@ -1,5 +1,6 @@
 package ClassesProjeto.Gerenciador;
 //CLASSE FACHADA e SINGLETON -> SÓ TERÁ UMA ISNTÂNCIA
+//TRANSFORMAR ESSAS FUNÇÕES EM VOID
 //NO FINAL DIMINUIR A CLASSE BIBLIOTECA EM UMA SERIE DE OUTRAS CLASSES - DISTRIBUIR A FUNÇÃO!
 
 import java.util.List;
@@ -51,6 +52,9 @@ public class Biblioteca {
         }
     }
     
-
+    public void criaDevolucao(double codigoUsuario, double codigoLivro){
+        ServicoDevolucao dev = new ServicoDevolucao();
+        dev.criarDevolucao(codigoUsuario, codigoLivro, this.usuarios, this.livros);
+    }
    
 }

@@ -26,17 +26,25 @@ public class Livro implements InterfaceLivro {
         this.edicao = edicao;
         this.anoPublicacao = anoPublicacao;
     }
-    
+    public void addEmprestimoLivro(){
+        this.quantidadeDeExemplares --;
+    }
     public void addReservaLivro(){
         //Incrementa a reserva do livro
         this.quantidadeDeReservas ++;
+        setStatusReserva(true);
     }
     public void removeReservaLivro(){
         //Decrementa a reserva do livro
         this.quantidadeDeReservas --;
+        setStatusReserva(false);
     }
     public void decrementaDiasDevolucao(){
         this.diasDevolucao --; //A cada dia o dia de devolução é decrementado
+    }
+    public void attDevolucao(){
+        this.quantidadeDeExemplares ++; //atualiza qntd de exemplares disponiveis
+        setStatusExemplar(true);//Diz q exemplar está disponível
     }
 
     //GETTERS E SETTER:
