@@ -1,0 +1,5 @@
+Os comandos tem uma interface comando. 
+A partir da interface, eu crio os comandos concretos, com o método executar(pedido pela interface).
+A classe invoker é quem chama meu comando e manda ele executar.
+Nosso receptor será a classe Biblioteca, que é quem detém os métodos a serem chamados!
+Eu preciso criar uma classe para cada comando concreto?
