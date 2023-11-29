@@ -12,7 +12,7 @@ public class AlunoPosGraduacao implements InterfaceUsuarioAluno{
     int tempoEmprestimo = 4;
     int limiteDeEmprestimos = 4;
     //para verificar se é devedor ou não:
-    boolean devedor,limiteMaximo; //True caso seja devedor ou estorou limite de emprestimos
+    boolean devedor,limiteMaximo = false; //True caso seja devedor ou estorou limite de emprestimos
     int quantidadeDeEmprestimos = 0; //Inicializa com 0 a quantidade de emprestimos
     //Usuários tem uma lista de livros:
     private List<InterfaceLivro> livrosEmprestados;
@@ -42,7 +42,7 @@ public class AlunoPosGraduacao implements InterfaceUsuarioAluno{
         this.livrosReservados.add(livro);
     }
     public void removeReserva(InterfaceLivro livro){
-        //diminuir quantidadeDeReserva
+        this.livrosReservados.remove(livro);
     }
     public void attDevolucao(InterfaceLivro livro){
         this.livrosEmprestados.remove(livro);
