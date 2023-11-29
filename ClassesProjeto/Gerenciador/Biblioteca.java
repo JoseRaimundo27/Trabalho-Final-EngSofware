@@ -16,6 +16,17 @@ public class Biblioteca {
     private List<InterfaceLivro> livrosEmprestados;
     private List<InterfaceLivro> livrosReservados;
     getByCodigo buscador = new getByCodigo();
+
+    //Garatindo que biblioteca é um SINGLETON:
+    private Biblioteca(){} //construtor privado
+    private static Biblioteca bib = new Biblioteca(); //Já crio um objeto biblioteca, sendo statico 
+
+    public static Biblioteca obterInstancia(){
+        if(bib == null){
+            bib = new Biblioteca();
+        }
+        return bib;
+    }
    
     
 
