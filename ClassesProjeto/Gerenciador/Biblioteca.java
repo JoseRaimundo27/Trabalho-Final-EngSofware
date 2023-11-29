@@ -16,7 +16,7 @@ public class Biblioteca {
     private List<InterfaceLivro> livrosEmprestados;
     private List<InterfaceLivro> livrosReservados;
     getByCodigo buscador = new getByCodigo();
-
+    
     //Garatindo que biblioteca é um SINGLETON:
     private Biblioteca(){} //construtor privado
     private static Biblioteca bib = new Biblioteca(); //Já crio um objeto biblioteca, sendo statico 
@@ -27,9 +27,6 @@ public class Biblioteca {
         }
         return bib;
     }
-   
-    
-
      //MÉTODOS:
     public void criarReserva(double codigoUsuario, double codigoLivro){
         ServicoReserva res = new ServicoReserva();
