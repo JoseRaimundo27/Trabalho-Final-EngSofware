@@ -29,15 +29,15 @@ public class Main {
     	bib.adicionarUsuario(carlos);
     	
  
-        InterfaceLivro livro1 = new Livro(100, "Engenharia de Software", "Ian Sommervile","AddisonWesley", "6ª", 2000);
-        InterfaceLivro livro2 = new Livro(100, "Engenharia de Software", "Ian Sommervile","AddisonWesley", "6ª", 2000);
-        InterfaceLivro livro3 = new Livro(101, "UML - Guia do Usuário", "Grady Booch, James Rumbaugh, Ivar Jacobson","Campus ", "7ª", 2000);
-        InterfaceLivro livro4 = new Livro(200, "Code Complete", "Steve McConnell","MicrosoftPress", "2ª", 2014);
-        InterfaceLivro livro5 = new Livro(201, "Agile Software Development, Principles, Patterns, and Practices", "Robert Martin ","Prentice Hall", "1ª", 2002);
-        InterfaceLivro livro6 = new Livro(300, "Refactoring: Improving the Design of Existing Code", "Martin Fowler","AddisonWesley Professional", "1ª", 1999);
-        InterfaceLivro livro7 = new Livro(301, "Software Metrics: A Rigorous and Practical Approach", "Norman Fenton, James Bieman","CRC Press", "3ª", 2014);
-        InterfaceLivro livro8 = new Livro(400, "Design Patterns: Elements of Reusable Object-Oriented Software", "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides","AddisonWesley Professional", "1ª", 1994);
-        InterfaceLivro livro9 = new Livro(401, "UML Distilled: A Brief Guide to the Standard Object Modeling Language", "Martin Fowler","AddisonWesley Professional", "3ª", 2003);
+        InterfaceLivro livro1 = new Livro(100, "Engenharia de Software", "Ian Sommervile","AddisonWesley", "6ª", 2000,1);
+        InterfaceLivro livro2 = new Livro(100, "Engenharia de Software", "Ian Sommervile","AddisonWesley", "6ª", 2000,2);
+        InterfaceLivro livro3 = new Livro(101, "UML - Guia do Usuário", "Grady Booch, James Rumbaugh, Ivar Jacobson","Campus ", "7ª", 2000,3);
+        InterfaceLivro livro4 = new Livro(200, "Code Complete", "Steve McConnell","MicrosoftPress", "2ª", 2014,4);
+        InterfaceLivro livro5 = new Livro(201, "Agile Software Development, Principles, Patterns, and Practices", "Robert Martin ","Prentice Hall", "1ª", 2002,5);
+        InterfaceLivro livro6 = new Livro(300, "Refactoring: Improving the Design of Existing Code", "Martin Fowler","AddisonWesley Professional", "1ª", 1999,6);
+        InterfaceLivro livro7 = new Livro(301, "Software Metrics: A Rigorous and Practical Approach", "Norman Fenton, James Bieman","CRC Press", "3ª", 2014,7);
+        InterfaceLivro livro8 = new Livro(400, "Design Patterns: Elements of Reusable Object-Oriented Software", "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides","AddisonWesley Professional", "1ª", 1994,8);
+        InterfaceLivro livro9 = new Livro(401, "UML Distilled: A Brief Guide to the Standard Object Modeling Language", "Martin Fowler","AddisonWesley Professional", "3ª", 2003,9);
     	
         
     	bib.adicionarLivro(livro1);

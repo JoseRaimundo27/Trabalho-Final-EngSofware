@@ -25,6 +25,15 @@ public class Livro implements InterfaceLivro {
         this.edicao = edicao;
         this.anoPublicacao = anoPublicacao;
     }
+    public Livro(int codigoLivro, String nomeLivro, String editora, String autores, String edicao, double anoPublicacao, int codigoExemplar){
+         this.codigoLivro = codigoLivro;
+        this.nomeLivro = nomeLivro;
+        this.editora = editora;
+        this.autores = autores;
+        this.edicao = edicao;
+        this.anoPublicacao = anoPublicacao;
+        this.codigoExemplar = codigoExemplar;
+    }
     public void addEmprestimoLivro(){
         this.quantidadeDeExemplares --;
     }
