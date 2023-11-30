@@ -1,13 +1,14 @@
 package ClassesProjeto.Livro;
 
 public class Livro implements InterfaceLivro {
-    private double codigoLivro;
+    private int codigoLivro;
     private String nomeLivro;
     private int codigoExemplar;
     private boolean statusExemplar = true; //True = disponivel;   False = não disponível
     private boolean statusReserva = false; // //True = reservado;   False = não reservado
     //"informações adicionais":
-    private String editora, autores, edicao;
+    private String editora, autores,edicao;
+
     private double anoPublicacao;
     
     //Quantidade de exemplares disponíveis
@@ -15,12 +16,10 @@ public class Livro implements InterfaceLivro {
     private int quantidadeDeReservas;
     private int diasDevolucao;
 
-    public Livro(double codigoLivro, String nomeLivro, int codigoExemplar, boolean statusExemplar, String editora,
-    String autores, String edicao, double anoPublicacao) {
-        this.codigoLivro = codigoLivro;
+
+    public Livro(int codigoLivro, String nomeLivro, String editora, String autores, String edicao, double anoPublicacao){
+         this.codigoLivro = codigoLivro;
         this.nomeLivro = nomeLivro;
-        this.codigoExemplar = codigoExemplar;
-        this.statusExemplar = statusExemplar;
         this.editora = editora;
         this.autores = autores;
         this.edicao = edicao;
@@ -49,13 +48,13 @@ public class Livro implements InterfaceLivro {
 
     //GETTERS E SETTER:
     @Override
-    public double getCodigoLivro() {
+    public int getCodigoLivro() {
         return codigoLivro;
     }
     
     
     @Override
-    public void setCodigoLivro(double codigoLivro) {
+    public void setCodigoLivro(int codigoLivro) {
         this.codigoLivro = codigoLivro;
     }
     

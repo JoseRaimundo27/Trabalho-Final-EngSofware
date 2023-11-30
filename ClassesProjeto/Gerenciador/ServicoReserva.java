@@ -1,5 +1,7 @@
 package ClassesProjeto.Gerenciador;
-import java.util.List;
+
+
+import java.util.ArrayList;
 
 import ClassesProjeto.Livro.InterfaceLivro;
 import ClassesProjeto.Usuarios.InterfaceUsuario;
@@ -14,7 +16,7 @@ public class ServicoReserva {
         this.obs = new ServicoObservador();
     }
 
-    public boolean criarReserva(List<InterfaceUsuario> usuarios, List<InterfaceLivro> livros, double codigoUsuario, double codigoLivro) {
+    public boolean criarReserva(ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros, double codigoUsuario, double codigoLivro) {
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios, codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros, codigoLivro);
 

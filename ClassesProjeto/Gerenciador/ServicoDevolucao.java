@@ -1,6 +1,8 @@
 package ClassesProjeto.Gerenciador;
 
-import java.util.List;
+
+
+import java.util.ArrayList;
 
 import ClassesProjeto.Livro.InterfaceLivro;
 import ClassesProjeto.Usuarios.InterfaceUsuario;
@@ -11,7 +13,7 @@ public class ServicoDevolucao {
     public ServicoDevolucao(){
         this.buscador = new getByCodigo();
     }
-    public boolean criarDevolucao(double codigoUsuario, double codigoLivro, List<InterfaceUsuario> usuarios, List<InterfaceLivro> livros){
+    public boolean criarDevolucao(double codigoUsuario, double codigoLivro, ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros){
         InterfaceUsuario user = buscador.getUsuarioByCodigoUsuario(usuarios, codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros, codigoLivro);
         if(livro == null){

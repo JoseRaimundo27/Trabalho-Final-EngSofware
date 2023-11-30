@@ -1,6 +1,6 @@
 package ClassesProjeto.Usuarios;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import ClassesProjeto.Gerenciador.InterfaceRealizadorEmprestimo;
 import ClassesProjeto.Livro.InterfaceLivro;
@@ -10,8 +10,8 @@ public interface InterfaceUsuario {
     String getNome();
     void setNome(String nome);
 
-    double getCodigoIdentificacao();
-    void setCodigoIdentificacao(double codigoIdentifcacao);
+    int getCodigoIdentificacao();
+    void setCodigoIdentificacao(int codigoIdentifcacao);
 
     int getTempoEmprestimo();
     void setTempoEmprestimo(int tempoEmprestimo);
@@ -20,10 +20,10 @@ public interface InterfaceUsuario {
     void setDevedor(boolean devedor);
 
     
-    List<InterfaceLivro> getLivrosEmprestados();
-    void setLivrosEmprestados(List<InterfaceLivro> livros);
+    ArrayList<InterfaceLivro> getLivrosEmprestados();
+    void setLivrosEmprestados(ArrayList<InterfaceLivro> livros);
 
-    List<InterfaceLivro> getLivrosReservados();
+    ArrayList<InterfaceLivro> getLivrosReservados();
 
     // Métodos comuns para alunos e professores:
 

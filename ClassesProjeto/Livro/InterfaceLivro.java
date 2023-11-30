@@ -7,8 +7,8 @@ public interface InterfaceLivro {
     void removeReservaLivro();
     void attDevolucao();
     //GETTER E SETTER:
-    double getCodigoLivro();
-    void setCodigoLivro(double codigoLivro);
+    int getCodigoLivro();
+    void setCodigoLivro(int codigoLivro);
 
     String getNomeLivro();
     void setNomeLivro(String nomeLivro);

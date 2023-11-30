@@ -1,6 +1,6 @@
 package ClassesProjeto.Gerenciador;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import ClassesProjeto.Livro.InterfaceLivro;
 import ClassesProjeto.Usuarios.InterfaceUsuario;
@@ -14,7 +14,7 @@ public class ServicoObservador implements InterfaceServicoObservador {
     }
     
     @Override
-    public void criarObservador(double codigoUsuario, double codigoLivro, List<InterfaceUsuario> usuarios, List<InterfaceLivro> livros){
+    public void criarObservador(double codigoUsuario, double codigoLivro, ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros){
         InterfaceUsuario u = buscador.getUsuarioByCodigoUsuario(usuarios, codigoUsuario);
         InterfaceObservador usuario = (InterfaceObservador) u; //Realizando Downcasting para acessar metodos exclusivos de professor
         InterfaceLivro livro = buscador.getLivroByCodigo(livros, codigoLivro);

@@ -76,7 +76,7 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
                     }// Se não tiver exemplar:
                         usuario.addEmprestimo(livro); //Atualizar todos dados do emprestimo
                         livro.setDiasDevolucao(usuario.getTempoEmprestimo()); //seta quantidade de dias que ele pode ficar com o livro
-                        System.out.println("Sucesso" + usuario.getNome() + " " + livro.getNomeLivro());
+                        System.out.println("Sucesso, o usuário " + usuario.getNome() + " pegou emprestado o livro " + livro.getNomeLivro());
                         return true;
                 }
             }

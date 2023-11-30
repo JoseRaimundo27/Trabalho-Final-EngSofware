@@ -1,6 +1,6 @@
 package ClassesProjeto.Usuarios;
 
-import java.util.List;
+import java.util.ArrayList;
 
 import ClassesProjeto.Gerenciador.InterfaceRealizadorEmprestimo;
 import ClassesProjeto.Gerenciador.realizadorEmprestimoProfessor;
@@ -8,7 +8,7 @@ import ClassesProjeto.Livro.InterfaceLivro;
 
 public class Professores implements InterfaceUsuario {
     String nome;
-    double codigoIdentificacao;
+    int codigoIdentificacao;
     //Especificidades:
      int tempoEmprestimo = 7;
      int limiteDeEmprestimos = 0;
@@ -16,12 +16,17 @@ public class Professores implements InterfaceUsuario {
     boolean devedor = false; //True caso seja devedor
     
     //Usuários tem uma lista de livros:
-    private List<InterfaceLivro> livrosEmprestados;
-    private List<InterfaceLivro> livrosReservados;
+    private ArrayList<InterfaceLivro> livrosEmprestados = new ArrayList<InterfaceLivro>();
+    private ArrayList<InterfaceLivro> livrosReservados = new ArrayList<InterfaceLivro>();
 
     //Para observadores:
-    private List<InterfaceLivro> livrosObservados;
+    private ArrayList<InterfaceLivro> livrosObservados = new ArrayList<InterfaceLivro>();
     private int qntDeNotificacao = 0;
+
+    public Professores(int codigoIdentificacao, String nome){
+        this.codigoIdentificacao = codigoIdentificacao;
+        this.nome = nome;
+    }
     //MÉTODOS:
     public void attLivrosObservados(InterfaceLivro livro){
         this.livrosObservados.add(livro);
@@ -61,11 +66,11 @@ public class Professores implements InterfaceUsuario {
         this.nome = nome;
     }
     
-    public double getCodigoIdentificacao() {
+    public int getCodigoIdentificacao() {
         return codigoIdentificacao;
     }
     
-    public void setCodigoIdentificacao(double codigoIdentificacao) {
+    public void setCodigoIdentificacao(int codigoIdentificacao) {
         this.codigoIdentificacao = codigoIdentificacao;
     }
     
@@ -90,17 +95,17 @@ public class Professores implements InterfaceUsuario {
     public void setDevedor(boolean devedor) {
         this.devedor = devedor;
     }
-    public List<InterfaceLivro> getLivrosEmprestados() {
+    public ArrayList<InterfaceLivro> getLivrosEmprestados() {
         return livrosEmprestados;
     }
     
-    public void setLivrosEmprestados(List<InterfaceLivro> livros) {
+    public void setLivrosEmprestados(ArrayList<InterfaceLivro> livros) {
         this.livrosEmprestados = livros;
     }
-    public List<InterfaceLivro> getLivrosReservados() {
+    public ArrayList<InterfaceLivro> getLivrosReservados() {
         return livrosReservados;
     }
-    public List<InterfaceLivro> getLivrosObservados() {
+    public ArrayList<InterfaceLivro> getLivrosObservados() {
         return livrosObservados;
     }
     public int getQntDeNotificacao() {
