@@ -1,14 +1,14 @@
 package ClassesProjeto.Gerenciador;
 
 import ClassesProjeto.Usuarios.InterfaceUsuario;
-import ClassesProjeto.Usuarios.InterfaceUsuarioProfessor;
+import ClassesProjeto.Usuarios.InterfaceObservador;
 import ClassesProjeto.Livro.InterfaceLivro;
 
 public class realizadorEmprestimoProfessor implements InterfaceRealizadorEmprestimo {
     
     @Override
     public boolean realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
-        InterfaceUsuarioProfessor usuario = (InterfaceUsuarioProfessor)u;
+        InterfaceObservador usuario = (InterfaceObservador)u;
         if (usuario.isDevedor()) {// Verificando se é devedor
             System.out.println("Usuário é devedor!");
             return false;

@@ -4,7 +4,7 @@ import java.util.List;
 
 import ClassesProjeto.Livro.InterfaceLivro;
 import ClassesProjeto.Usuarios.InterfaceUsuario;
-import ClassesProjeto.Usuarios.InterfaceUsuarioProfessor;
+import ClassesProjeto.Usuarios.InterfaceObservador;
 
 public class ServicoObservador implements InterfaceServicoObservador {
     private getByCodigo buscador;
@@ -16,7 +16,7 @@ public class ServicoObservador implements InterfaceServicoObservador {
     @Override
     public void criarObservador(double codigoUsuario, double codigoLivro, List<InterfaceUsuario> usuarios, List<InterfaceLivro> livros){
         InterfaceUsuario u = buscador.getUsuarioByCodigoUsuario(usuarios, codigoUsuario);
-        InterfaceUsuarioProfessor usuario = (InterfaceUsuarioProfessor) u; //Realizando Downcasting para acessar metodos exclusivos de professor
+        InterfaceObservador usuario = (InterfaceObservador) u; //Realizando Downcasting para acessar metodos exclusivos de professor
         InterfaceLivro livro = buscador.getLivroByCodigo(livros, codigoLivro);
 
         usuario.attLivrosObservados(livro);
@@ -27,7 +27,7 @@ public class ServicoObservador implements InterfaceServicoObservador {
     
     @Override
     public void verificaReservaParaObservador(InterfaceLivro livro, InterfaceUsuario u){
-        InterfaceUsuarioProfessor usuario = (InterfaceUsuarioProfessor) u;
+        InterfaceObservador usuario = (InterfaceObservador) u;
         if(livro.getQuantidadeDeReservas() > 2){ //Se for maior, notifica
             usuario.registarNotificacao();
         }
