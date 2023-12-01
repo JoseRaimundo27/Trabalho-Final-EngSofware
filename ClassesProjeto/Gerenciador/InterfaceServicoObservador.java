@@ -8,7 +8,7 @@ import ClassesProjeto.Usuarios.InterfaceUsuario;
 
 public interface InterfaceServicoObservador {
 
-    void criarObservador(double codigoUsuario, double codigoLivro, ArrayList<InterfaceUsuario> usuarios,
+    void criarObservador(int codigoUsuario, int codigoLivro, ArrayList<InterfaceUsuario> usuarios,
             ArrayList<InterfaceLivro> livros);
 
     void verificaReservaParaObservador(InterfaceLivro livro, InterfaceUsuario u);

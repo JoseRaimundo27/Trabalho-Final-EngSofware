@@ -29,7 +29,7 @@ public class Biblioteca {
         return bib;
     }
      //MÉTODOS:
-    public void criarReserva(double codigoUsuario, double codigoLivro){
+    public void criarReserva(int codigoUsuario, int codigoLivro){
         ServicoReserva res = new ServicoReserva();
         //Cria reserva e verifica se deu certo:
         if(res.criarReserva(this.usuarios, this.livros,codigoUsuario,codigoLivro)){ //Se efetuou a reserva:
@@ -38,7 +38,7 @@ public class Biblioteca {
     }
         
         
-    public void criarEmprestimo(double codigoUsuario, double codigoLivro){
+    public void criarEmprestimo(int codigoUsuario, int codigoLivro){
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros,codigoLivro);
 
@@ -52,12 +52,12 @@ public class Biblioteca {
         }
     }
     
-    public void criaDevolucao(double codigoUsuario, double codigoLivro){
+    public void criaDevolucao(int codigoUsuario, int codigoLivro){
         ServicoDevolucao dev = new ServicoDevolucao();
         dev.criarDevolucao(codigoUsuario, codigoLivro, this.usuarios, this.livros);
     }
 
-    public void criarObservador(double codigoUsuario, double codigoLivro){
+    public void criarObservador(int codigoUsuario, int codigoLivro){
         InterfaceServicoObservador obs = new ServicoObservador();
         obs.criarObservador(codigoUsuario, codigoLivro, usuarios, livros);
     }

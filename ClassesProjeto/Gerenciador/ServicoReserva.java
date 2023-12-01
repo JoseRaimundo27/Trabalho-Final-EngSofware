@@ -16,7 +16,7 @@ public class ServicoReserva {
         this.obs = new ServicoObservador();
     }
 
-    public boolean criarReserva(ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros, double codigoUsuario, double codigoLivro) {
+    public boolean criarReserva(ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros, int codigoUsuario, int codigoLivro) {
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios, codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros, codigoLivro);
 

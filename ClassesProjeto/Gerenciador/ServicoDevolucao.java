@@ -13,7 +13,7 @@ public class ServicoDevolucao {
     public ServicoDevolucao(){
         this.buscador = new getByCodigo();
     }
-    public boolean criarDevolucao(double codigoUsuario, double codigoLivro, ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros){
+    public boolean criarDevolucao(int codigoUsuario, int codigoLivro, ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros){
         InterfaceUsuario user = buscador.getUsuarioByCodigoUsuario(usuarios, codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros, codigoLivro);
         if(livro == null){

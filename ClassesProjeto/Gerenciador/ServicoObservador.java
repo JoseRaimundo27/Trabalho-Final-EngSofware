@@ -14,7 +14,7 @@ public class ServicoObservador implements InterfaceServicoObservador {
     }
     
     @Override
-    public void criarObservador(double codigoUsuario, double codigoLivro, ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros){
+    public void criarObservador(int codigoUsuario, int codigoLivro, ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros){
         InterfaceUsuario u = buscador.getUsuarioByCodigoUsuario(usuarios, codigoUsuario);
         InterfaceObservador usuario = (InterfaceObservador) u; //Realizando Downcasting para acessar metodos exclusivos de professor
         InterfaceLivro livro = buscador.getLivroByCodigo(livros, codigoLivro);
