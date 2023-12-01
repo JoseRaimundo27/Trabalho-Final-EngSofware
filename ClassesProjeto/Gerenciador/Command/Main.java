@@ -1,9 +1,11 @@
 package ClassesProjeto.Gerenciador.Command;
 
+import java.util.HashMap;
 import java.util.Scanner;
 
 import ClassesProjeto.Gerenciador.Biblioteca;
 import ClassesProjeto.Gerenciador.Command.Comandos.ComandoEmprestimo;
+import ClassesProjeto.Gerenciador.Command.Comandos.ComandoSair;
 import ClassesProjeto.Livro.InterfaceLivro;
 import ClassesProjeto.Livro.Livro;
 import ClassesProjeto.Usuarios.AlunoGraduacao;
@@ -16,6 +18,7 @@ public class Main {
     public static void main(String[] args) {
         Biblioteca bib;
         bib = Biblioteca.obterInstancia();
+        
 
         //INSTANCIANDO DADOS DE TESTE:
         InterfaceUsuario joao = (new AlunoGraduacao(123, "João da Silva"));
@@ -49,10 +52,9 @@ public class Main {
     	bib.adicionarLivro(livro7);
     	bib.adicionarLivro(livro8);
     	bib.adicionarLivro(livro9);
+        //---------------------------------------------
 
-
-        Invoker invoker = new Invoker(); //O invoker vai invocar os commandos(preciso dar set commando depois executar comando)
-
+        
         System.out.println("emp codigoUsuario codigoLivro");
         System.out.println("dev codigoUsuario codigoLivro");
         System.out.println("res codigoUsuario codigoLivro");
@@ -63,13 +65,33 @@ public class Main {
         System.out.println("sair");
         System.out.println(" ");
 
+
+
         while (true) {
             Scanner scanner = new Scanner(System.in);
             System.out.println("Qual comando a ser executado: ");
             String comandoUsuario = scanner.nextLine();
-            
+
+            //Tabela de comandos:
+            //Comandos com um parametro
+            HashMap<String,InterfaceComando> mapComandos = new HashMap<>();
+            mapComandos.put("sair", new ComandoSair());
 
             String[] partes = comandoUsuario.split(" ");
+            String qualComando = partes[0];
+            if(partes.length == 3 ){ //Tem que checar, se não ele dá erro dizendo q é nulo!
+                int codigoUsuario = Integer.parseInt(partes[1]);
+                int codigoLivro = Integer.parseInt(partes[2]);
+                mapComandos.put("emp", new ComandoEmprestimo(codigoUsuario, codigoLivro));
+            }
+            
+ 
+            Invoker invoker = new Invoker();
+            InterfaceComando comando = mapComandos.get(qualComando);
+            
+            invoker.setComando(comando);
+            invoker.executarComando();
+            /* 
             if (partes[0].equals("emp")) {
                 double codigoUsuario = Integer.parseInt(partes[1]);
                 double codigoLivro = Integer.parseInt(partes[2]);
@@ -114,6 +136,7 @@ public class Main {
                 System.out.println("Saindo do sistema");
                 break;
             }
+            */
         }
     }
 }

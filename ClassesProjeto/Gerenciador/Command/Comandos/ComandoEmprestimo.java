@@ -4,9 +4,9 @@ import ClassesProjeto.Gerenciador.Biblioteca;
 import ClassesProjeto.Gerenciador.Command.InterfaceComando;
 
 public class ComandoEmprestimo implements InterfaceComando {
-    Double codigoUsuario, codigoLivro;
+    int codigoUsuario, codigoLivro;
 
-    public ComandoEmprestimo(Double codigoUsuario, double codigoLivro){
+    public ComandoEmprestimo(int codigoUsuario, int codigoLivro){
         this.codigoLivro = codigoLivro;
         this.codigoUsuario = codigoUsuario;
     }
