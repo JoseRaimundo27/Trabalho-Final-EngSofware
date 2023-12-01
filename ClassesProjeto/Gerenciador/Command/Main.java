@@ -11,8 +11,6 @@ import ClassesProjeto.Usuarios.InterfaceUsuario;
 import ClassesProjeto.Usuarios.Professores;
 
 public class Main {
-    private boolean ativo = true; //para loop
-
     public static void main(String[] args) {
         Biblioteca bib;
         bib = Biblioteca.obterInstancia();
