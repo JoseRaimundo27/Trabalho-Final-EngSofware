@@ -14,8 +14,9 @@ public class realizadorEmprestimoProfessor implements InterfaceRealizadorEmprest
             return false;
         }else{
             usuario.addEmprestimo(livro);
+            livro.addEmprestimoLivro();
             livro.setDiasDevolucao(usuario.getTempoEmprestimo()); //seta quantidade de dias que ele pode ficar com o livro
-            System.out.println("Sucesso" + usuario.getNome() + " " + livro.getNomeLivro()); 
+            System.out.println("Sucesso, o usuário " + usuario.getNome() + " pegou emprestado o livro " + livro.getNomeLivro());
             return true;
         }
     }

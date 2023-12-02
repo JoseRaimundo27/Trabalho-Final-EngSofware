@@ -37,6 +37,7 @@ public class Livro implements InterfaceLivro {
     }
     public void addEmprestimoLivro(){
         this.quantidadeDeExemplares --;
+        setStatusExemplar(false);
     }
     public void addReservaLivro(){
         //Incrementa a reserva do livro

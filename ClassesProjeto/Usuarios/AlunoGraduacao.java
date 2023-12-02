@@ -125,8 +125,14 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
     }
 
     @Override
-    public String toString() {
-        return "AlunoGraduacao [livrosEmprestados=" + livrosEmprestados + ", livrosReservados=" + livrosReservados
-                + "]";
+    public void listaLivrosEmprestados() {
+        for(int i = 0; i<this.livrosEmprestados.size(); i++){
+            System.out.println("Livros emprestados: " + this.livrosEmprestados.get(i).getNomeLivro() + " ,Status do emprestimo: " + this.livrosEmprestados.get(i).isStatusExemplar() + " ,Tempo para devolucao: " + this.livrosEmprestados.get(i).getDiasDevolucao());
+        }
+        for(int i = 0; i<this.livrosReservados.size(); i++){
+            System.out.println("Livros reservados: " + this.livrosEmprestados.get(i).getNomeLivro() + " ,Status da reserva: " + this.livrosEmprestados.get(i).isStatusReserva() );
+        }
+        
     }
+    
 }

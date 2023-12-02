@@ -76,7 +76,8 @@ public class Main {
             if(partes.length == 3 ){ //Tem que checar, se não ele dá erro dizendo q é nulo!
               argumentos.setArg1(Integer.parseInt(partes[1]));
               argumentos.setArg2(Integer.parseInt(partes[2]));
-            }else{
+            }
+            if(partes.length == 2 ){
                 argumentos.setArg1(Integer.parseInt(partes[1]));
             }
             

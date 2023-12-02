@@ -45,7 +45,8 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
                         usuario.addEmprestimo(livro); //Atualizar todos dados do emprestimo
                         usuario.removeReserva(livro);
                         livro.removeReservaLivro();
-                        System.out.println("Sucesso" + usuario.getNome() + " " + livro.getNomeLivro());
+                        livro.addEmprestimoLivro();
+                        System.out.println("Sucesso, o usuário " + usuario.getNome() + " pegou emprestado o livro " + livro.getNomeLivro());
                         return true;
                 }
             }
@@ -75,6 +76,7 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
                         } 
                     }// Se não tiver exemplar:
                         usuario.addEmprestimo(livro); //Atualizar todos dados do emprestimo
+                        livro.addEmprestimoLivro();
                         livro.setDiasDevolucao(usuario.getTempoEmprestimo()); //seta quantidade de dias que ele pode ficar com o livro
                         System.out.println("Sucesso, o usuário " + usuario.getNome() + " pegou emprestado o livro " + livro.getNomeLivro());
                         return true;

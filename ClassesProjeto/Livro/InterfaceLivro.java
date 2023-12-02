@@ -40,6 +40,7 @@ public interface InterfaceLivro {
     int getQuantidadeDeReservas();
     void setQuantidadeDeReservas(int quantidadeDeReservas);
 
+    int getDiasDevolucao();
     void setDiasDevolucao(int diasDevolucao);
 
     String toString();

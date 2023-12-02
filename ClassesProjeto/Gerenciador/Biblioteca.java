@@ -92,8 +92,6 @@ public class Biblioteca {
     }
     public void listarEmprestimo(int codigoUsuario){
         InterfaceUsuario user = buscador.getUsuarioByCodigoUsuario(this.usuarios, codigoUsuario);
-        System.out.println(user.toString());
-
-
+        user.listaLivrosEmprestados();
     }
 }
