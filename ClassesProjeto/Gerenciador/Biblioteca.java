@@ -88,7 +88,19 @@ public class Biblioteca {
     }
     public void infoLivro(int codigoLivro){
         InterfaceLivro liv = buscador.getLivroByCodigo(this.livros,codigoLivro);
-        System.out.println(liv.toString());
+        if(liv.getQuantidadeDeReservas() > 0){
+            for(int i =0; i<usuarios.size();i++){
+            for(int j=0;j<usuarios.get(i).getLivrosReservados().size(); j++){
+                if (usuarios.get(i).getLivrosReservados().get(j) == liv) {
+                    System.out.println(liv.toString() + " usuario que reservou: " + usuarios.get(i).getNome());
+                }
+            }
+        }
+
+        }else{
+            System.out.println(liv.toString());
+        }
+        
     }
     public void listarEmprestimo(int codigoUsuario){
         InterfaceUsuario user = buscador.getUsuarioByCodigoUsuario(this.usuarios, codigoUsuario);
