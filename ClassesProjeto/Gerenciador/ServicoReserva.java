@@ -9,11 +9,9 @@ import ClassesProjeto.Usuarios.InterfaceUsuario;
 public class ServicoReserva {
     private InterfaceLivro livroReservado;
     private getByCodigo buscador;
-    private InterfaceServicoObservador obs;
 
     public ServicoReserva() {
         this.buscador = new getByCodigo();
-        this.obs = new ServicoObservador();
     }
 
     public boolean criarReserva(ArrayList<InterfaceUsuario> usuarios, ArrayList<InterfaceLivro> livros, int codigoUsuario, int codigoLivro) {
@@ -37,8 +35,7 @@ public class ServicoReserva {
             livro.addReservaLivro();
             usuario.addReserva(livro);
             this.livroReservado = livro; //Salvando no sistema
-            System.out.println("Sucesso ao reservar" + livro.getNomeLivro() + " pelo usuário" + usuario.getNome()); 
-            obs.verificaReservaParaObservador(livro, usuario);
+            System.out.println("Sucesso ao reservar " + livro.getNomeLivro() + " pelo usuário " + usuario.getNome()); 
             return true;
         }
 

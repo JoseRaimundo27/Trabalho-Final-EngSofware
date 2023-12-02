@@ -7,6 +7,7 @@ package ClassesProjeto.Gerenciador;
 import java.util.ArrayList;
 
 import ClassesProjeto.Livro.InterfaceLivro;
+import ClassesProjeto.Usuarios.InterfaceObservador;
 import ClassesProjeto.Usuarios.InterfaceUsuario;
 
 public class Biblioteca {
@@ -16,6 +17,7 @@ public class Biblioteca {
     //Registro de operações:
     private ArrayList<InterfaceLivro> livrosEmprestados = new ArrayList<InterfaceLivro>();
     private ArrayList<InterfaceLivro> livrosReservados = new ArrayList<InterfaceLivro>();
+    private ArrayList<InterfaceObservador> observadores = new ArrayList<InterfaceObservador>();
     getByCodigo buscador = new getByCodigo();
     
     //Garatindo que biblioteca é um SINGLETON:
@@ -34,10 +36,23 @@ public class Biblioteca {
         //Cria reserva e verifica se deu certo:
         if(res.criarReserva(this.usuarios, this.livros,codigoUsuario,codigoLivro)){ //Se efetuou a reserva:
             this.livrosReservados.add(res.getLivroReservados());// Salvando livro no sistema
+            notifyObservers(res.getLivroReservados());
         }
+        
     }
         
-        
+    public void notifyObservers(InterfaceLivro livro){
+        InterfaceServicoObservador obs = new ServicoObservador();
+        for(int i=0;i<observadores.size();i++){
+            obs.verificaReservaParaObservador(livro,observadores.get(i));
+        }
+    }
+    public void quantidadeNotificacao(int codigoUsuario){
+        InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
+        InterfaceObservador u = (InterfaceObservador)usuario;
+        System.out.println(u.getQntDeNotificacao());
+    }
+    
     public void criarEmprestimo(int codigoUsuario, int codigoLivro){
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros,codigoLivro);
@@ -67,5 +82,18 @@ public class Biblioteca {
     }
     public void adicionarUsuario(InterfaceUsuario usuario){
         this.usuarios.add(usuario);
+    }
+    public void adicionaObservador(InterfaceObservador observador){
+        this.observadores.add(observador);
+    }
+    public void infoLivro(int codigoLivro){
+        InterfaceLivro liv = buscador.getLivroByCodigo(this.livros,codigoLivro);
+        System.out.println(liv.toString());
+    }
+    public void listarEmprestimo(int codigoUsuario){
+        InterfaceUsuario user = buscador.getUsuarioByCodigoUsuario(this.usuarios, codigoUsuario);
+        System.out.println(user.toString());
+
+
     }
 }

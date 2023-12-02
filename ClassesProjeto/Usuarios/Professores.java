@@ -6,7 +6,7 @@ import ClassesProjeto.Gerenciador.InterfaceRealizadorEmprestimo;
 import ClassesProjeto.Gerenciador.realizadorEmprestimoProfessor;
 import ClassesProjeto.Livro.InterfaceLivro;
 
-public class Professores implements InterfaceUsuario {
+public class Professores implements InterfaceObservador {
     String nome;
     int codigoIdentificacao;
     //Especificidades:

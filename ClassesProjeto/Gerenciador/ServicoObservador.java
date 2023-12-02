@@ -8,7 +8,7 @@ import ClassesProjeto.Usuarios.InterfaceObservador;
 
 public class ServicoObservador implements InterfaceServicoObservador {
     private getByCodigo buscador;
-    
+    Biblioteca bib = Biblioteca.obterInstancia();
     public ServicoObservador(){
         this.buscador = new getByCodigo();
     }
@@ -20,16 +20,17 @@ public class ServicoObservador implements InterfaceServicoObservador {
         InterfaceLivro livro = buscador.getLivroByCodigo(livros, codigoLivro);
 
         usuario.attLivrosObservados(livro);
+        bib.adicionaObservador(usuario);
 
-        System.out.println("O usuário" + usuario.getNome() + "está observando o livro" + livro.getNomeLivro());
+        System.out.println("O usuário " + usuario.getNome() + " está observando o livro " + livro.getNomeLivro());
 
     }
     
     @Override
-    public void verificaReservaParaObservador(InterfaceLivro livro, InterfaceUsuario u){
-        InterfaceObservador usuario = (InterfaceObservador) u;
+    public void verificaReservaParaObservador(InterfaceLivro livro, InterfaceObservador u){
         if(livro.getQuantidadeDeReservas() > 2){ //Se for maior, notifica
-            usuario.registarNotificacao();
+            u.registarNotificacao();
         }
     }
+
 }

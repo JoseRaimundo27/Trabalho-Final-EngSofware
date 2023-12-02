@@ -11,8 +11,10 @@ public class getByCodigo {
         for(int i=0;i<livros.size();i++){
             if(livros.get(i).getCodigoLivro() == codigoLivro){
                 return livros.get(i);
+                
             }
         }
+
         return null;
 
     }

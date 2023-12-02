@@ -41,6 +41,9 @@ public interface InterfaceLivro {
     void setQuantidadeDeReservas(int quantidadeDeReservas);
 
     void setDiasDevolucao(int diasDevolucao);
+
+    String toString();
+
     
 
 }

@@ -123,4 +123,10 @@ public class AlunoGraduacao implements InterfaceUsuarioAluno {
      public ArrayList<InterfaceLivro> getLivrosReservados() {
         return livrosReservados;
     }
+
+    @Override
+    public String toString() {
+        return "AlunoGraduacao [livrosEmprestados=" + livrosEmprestados + ", livrosReservados=" + livrosReservados
+                + "]";
+    }
 }

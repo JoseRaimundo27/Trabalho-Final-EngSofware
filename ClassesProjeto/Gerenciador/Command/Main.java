@@ -41,7 +41,6 @@ public class Main {
         InterfaceLivro livro8 = new Livro(400, "Design Patterns: Elements of Reusable Object-Oriented Software", "Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides","AddisonWesley Professional", "1ª", 1994,8);
         InterfaceLivro livro9 = new Livro(401, "UML Distilled: A Brief Guide to the Standard Object Modeling Language", "Martin Fowler","AddisonWesley Professional", "3ª", 2003,9);
     	
-        
     	bib.adicionarLivro(livro1);
     	bib.adicionarLivro(livro2);
     	bib.adicionarLivro(livro3);
@@ -75,8 +74,10 @@ public class Main {
             argumentos.setComandoArg(partes[0]);
             
             if(partes.length == 3 ){ //Tem que checar, se não ele dá erro dizendo q é nulo!
-              argumentos.setCodigoUsuarioArg(Integer.parseInt(partes[1]));
-              argumentos.setCodigoLivroArg(Integer.parseInt(partes[2]));
+              argumentos.setArg1(Integer.parseInt(partes[1]));
+              argumentos.setArg2(Integer.parseInt(partes[2]));
+            }else{
+                argumentos.setArg1(Integer.parseInt(partes[1]));
             }
             
             InterfaceComando comando = dadosComandos.getMapComandos().get(argumentos.getComandoArg());//pegando qual comando

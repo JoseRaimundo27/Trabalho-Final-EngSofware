@@ -1,6 +1,7 @@
 package ClassesProjeto.Livro;
 
 public class Livro implements InterfaceLivro {
+    
     private int codigoLivro;
     private String nomeLivro;
     private int codigoExemplar;
@@ -178,4 +179,10 @@ public class Livro implements InterfaceLivro {
     public void setDiasDevolucao(int diasDevolucao) {
         this.diasDevolucao = diasDevolucao;
     }
+    @Override
+    public String toString() {
+        return "Livro [nomeLivro=" + nomeLivro + ", statusExemplar=" + statusExemplar + ", quantidadeDeReservas="
+                + quantidadeDeReservas + ", diasDevolucao=" + diasDevolucao + "]";
+    }
+    
 }
