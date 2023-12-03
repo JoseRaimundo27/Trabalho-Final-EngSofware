@@ -8,16 +8,17 @@ public class realizadorEmprestimoAluno implements InterfaceRealizadorEmprestimo 
    VerificadorReserva verifica = new VerificadorReserva();
     @Override
     public boolean realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
-        InterfaceUsuarioAluno usuario = (InterfaceUsuarioAluno) u; // Realizando Downcasting para acessar metodos do
-                                                                   // filho InterfacUsuarioAluno (limite de emprestimo)
         if(livro == null){
             System.out.println("Codigo do livro inválido!"); 
             return false;
         }
-        if(usuario == null){
+        if(u == null){
             System.out.println("Codigo do usuário inválido!");
             return false;
         }
+        InterfaceUsuarioAluno usuario = (InterfaceUsuarioAluno) u; // Realizando Downcasting para acessar metodos do
+                                                                   // filho InterfacUsuarioAluno (limite de emprestimo)
+        
 
         //PARA USUARIOS COM RESERVA:
         if (verifica.verificaReserva(usuario, livro)) { //Verifica se há reserva

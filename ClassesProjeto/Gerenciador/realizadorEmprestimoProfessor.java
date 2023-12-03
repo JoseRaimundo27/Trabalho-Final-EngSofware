@@ -8,6 +8,14 @@ public class realizadorEmprestimoProfessor implements InterfaceRealizadorEmprest
     
     @Override
     public boolean realizarEmprestimo(InterfaceUsuario u, InterfaceLivro livro) {
+        if(livro == null){
+            System.out.println("Codigo do livro inválido!"); 
+            return false;
+        }
+        if(u == null){
+            System.out.println("Codigo do usuário inválido!");
+            return false;
+        }
         InterfaceObservador usuario = (InterfaceObservador)u;
         if (usuario.isDevedor()) {// Verificando se é devedor
             System.out.println("Usuário é devedor!");

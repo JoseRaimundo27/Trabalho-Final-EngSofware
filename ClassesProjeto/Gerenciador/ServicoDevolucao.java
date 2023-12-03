@@ -24,6 +24,7 @@ public class ServicoDevolucao {
             System.out.println("Codigo do usuário inválido!");
             return false;
         }
+        
 
         for(int i=0;i<user.getLivrosEmprestados().size();i++){
             if(user.getLivrosEmprestados().get(i).getCodigoLivro() == codigoLivro){ // Se ele tiver emprestimo em aberto do livro

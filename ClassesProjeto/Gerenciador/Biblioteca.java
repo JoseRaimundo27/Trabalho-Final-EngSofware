@@ -38,7 +38,6 @@ public class Biblioteca {
             this.livrosReservados.add(res.getLivroReservados());// Salvando livro no sistema
             notifyObservers(res.getLivroReservados());
         }
-        
     }
         
     public void notifyObservers(InterfaceLivro livro){
@@ -49,17 +48,27 @@ public class Biblioteca {
     }
     public void quantidadeNotificacao(int codigoUsuario){
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
-        InterfaceObservador u = (InterfaceObservador)usuario;
-        System.out.println(u.getQntDeNotificacao());
+        if(usuario == null){
+            System.out.println("Codigo do usuário inválido!");
+        }else{
+            InterfaceObservador u = (InterfaceObservador)usuario;
+            System.out.println(u.getQntDeNotificacao());
+        }
     }
     
     public void criarEmprestimo(int codigoUsuario, int codigoLivro){
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
         InterfaceLivro livro = buscador.getLivroByCodigo(livros,codigoLivro);
+         if(livro == null){
+            System.out.println("Codigo do livro inválido!"); 
+        }
+        if(usuario == null){
+            System.out.println("Codigo do usuário inválido!");
+        }
 
         if(livro.isStatusExemplar()){ //verifica se exemplar está disponível
          // A partir do tipo de emprestimo em questão, eu vou criar o emprestimo, respeitando as regras da criação de empréstimo diferentes entre professores e alunos:
-            if( usuario.obterTipoEmprestimo().realizarEmprestimo(usuario,livro)){ //Se deu certo ( retornou true)
+         if( usuario.obterTipoEmprestimo().realizarEmprestimo(usuario,livro)){ //Se deu certo ( retornou true)
                 this.livrosEmprestados.add(livro);
             }
         }else{
@@ -87,23 +96,18 @@ public class Biblioteca {
         this.observadores.add(observador);
     }
     public void infoLivro(int codigoLivro){
-        InterfaceLivro liv = buscador.getLivroByCodigo(this.livros,codigoLivro);
-        if(liv.getQuantidadeDeReservas() > 0){
-            for(int i =0; i<usuarios.size();i++){
-            for(int j=0;j<usuarios.get(i).getLivrosReservados().size(); j++){
-                if (usuarios.get(i).getLivrosReservados().get(j) == liv) {
-                    System.out.println(liv.toString() + " usuario que reservou: " + usuarios.get(i).getNome());
-                }
-            }
-        }
+        ServicoLiv servicoliv = new ServicoLiv();
+        servicoliv.informacaoLivro(codigoLivro, livros, usuarios);
 
-        }else{
-            System.out.println(liv.toString());
-        }
-        
     }
     public void listarEmprestimo(int codigoUsuario){
         InterfaceUsuario user = buscador.getUsuarioByCodigoUsuario(this.usuarios, codigoUsuario);
-        user.listaLivrosEmprestados();
+        if(user == null){
+            System.out.println("Codigo do usuário inválido!");
+        }else{
+            user.listaLivrosEmprestados();
+        }
+        
+        
     }
 }
