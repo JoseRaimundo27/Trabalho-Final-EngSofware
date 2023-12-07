@@ -18,6 +18,7 @@ public class Biblioteca {
     private ArrayList<InterfaceLivro> livrosEmprestados = new ArrayList<InterfaceLivro>();
     private ArrayList<InterfaceLivro> livrosReservados = new ArrayList<InterfaceLivro>();
     private ArrayList<InterfaceObservador> observadores = new ArrayList<InterfaceObservador>();
+    
     getByCodigo buscador = new getByCodigo();
     
     //Garatindo que biblioteca é um SINGLETON:
@@ -42,9 +43,7 @@ public class Biblioteca {
         
     public void notifyObservers(InterfaceLivro livro){
         InterfaceServicoObservador obs = new ServicoObservador();
-        for(int i=0;i<observadores.size();i++){
-            obs.verificaReservaParaObservador(livro,observadores.get(i));
-        }
+        obs.notifyObservers(livro);
     }
     public void quantidadeNotificacao(int codigoUsuario){
         InterfaceUsuario usuario = buscador.getUsuarioByCodigoUsuario(usuarios,codigoUsuario);
@@ -109,5 +108,8 @@ public class Biblioteca {
         }
         
         
+    }
+    public ArrayList<InterfaceObservador> getObservadores() {
+        return observadores;
     }
 }

@@ -51,7 +51,6 @@ public class Main {
     	bib.adicionarLivro(livro8);
     	bib.adicionarLivro(livro9);
         //---------------------------------------------
-
         
         System.out.println("emp codigoUsuario codigoLivro");
         System.out.println("dev codigoUsuario codigoLivro");

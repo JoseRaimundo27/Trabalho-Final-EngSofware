@@ -13,5 +13,6 @@ public interface InterfaceServicoObservador {
             ArrayList<InterfaceLivro> livros);
 
     void verificaReservaParaObservador(InterfaceLivro livro, InterfaceObservador u);
+    void notifyObservers(InterfaceLivro livro);
 
 }

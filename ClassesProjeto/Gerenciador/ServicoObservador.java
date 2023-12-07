@@ -33,4 +33,12 @@ public class ServicoObservador implements InterfaceServicoObservador {
         }
     }
 
+    @Override
+    public void notifyObservers(InterfaceLivro livro){
+        Biblioteca bib = Biblioteca.obterInstancia();
+        for(int i=0;i<bib.getObservadores().size();i++){
+            verificaReservaParaObservador(livro,bib.getObservadores().get(i));
+        }
+    }
+
 }
